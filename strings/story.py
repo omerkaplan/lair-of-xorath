@@ -26,6 +26,15 @@ advance = [
 '\nYour destiny awaits, time to move...\n'
 ]
 
+trap_avoided = [
+'\n\nYou notice a pressure plate on the floor and carefully mark it with some rocks. You can only imagine what\nwould have happened if one would be unfortunate to step on it.\n'
+]
+
+trap_triggered = [
+'\nYou move as carefully as you can, holding the torch tight. Suddenly, you feel your boot sinking ever so\nslightly into the floor. A pressure plate!',
+'\nThe lair is dark and you cross a small overhead pass on your way forward. You notice small string attahced\nto the floor a second too late. A trap!'
+]
+
 def monster_encounter(monster):
     list = [
     'A '+monster.name+' appears!',

@@ -24,11 +24,11 @@ def luck_test(player): # luck test, returns True if lucky or False otherwise
     luck = player.luck
     roll = roll_die(2,6)
     if roll <= luck:
-        print ('\nPassed luck test '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
+        print ('\nLuck roll - success! '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
         player.luck = player.luck - 1
         return True
     elif roll > luck:
-        print ('\nFailed luck test'+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
+        print ('\nLuck roll - failed '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
         return False
 
 def check_dead(object):
@@ -97,5 +97,5 @@ def combat(player,monster):
         if check_dead(player) is True:
             clear_screen()
             print ('\n'+monster.name+' '+monster.fatality+' Your adventure ends here...\n')
-            includes.globals.done = True # game over
+            globals.done = True # game over
             break

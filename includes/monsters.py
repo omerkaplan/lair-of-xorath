@@ -17,5 +17,6 @@ class monster:
 
 kobold = monster('🐸 Kobold',12,10,10,equipment.rusty_spear,equipment.natural_hide,'chops your head and feasts on your corpse.')
 giant_spider = monster('🕷 Giant Spider',16,5,5,equipment.bite_attack,equipment.natural_hide,'bites your head off.')
+snakefolk = monster('🐍 Snakefolk',13,12,12,equipment.rusty_spear,equipment.natural_hide,'quickly wrapd around you and start crushing. You feel your bones buckle under the pressure.')
 
-monsters = [kobold,giant_spider]
+monsters = [kobold,giant_spider,snakefolk]

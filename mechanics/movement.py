@@ -23,18 +23,19 @@ def play_encounter(map_value):
         enemy = random.choice(monsters)
         monster_encounter(enemy)
         combat(my_hero,enemy)
-    if map_value == 5:
+    elif map_value == 5:
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
         tell_story(resting)
         rest(my_hero)
         tell_story(advance)
-    if map_value == 6:
+    elif map_value == 6:
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
-        encounter_trap(trap_spike,my_hero)
+        trap = random.choice(traps)
+        encounter_trap(trap,my_hero)
     else:
         print ('DEBUG -> Playing encounter: '+str(map_value))
 

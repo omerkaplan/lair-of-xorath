@@ -26,32 +26,36 @@ from strings.story import *
 
 
 class trap:
-    def __init__(self, name,damage,fatality):
+    def __init__(self, name,damage,damage_description,fatality):
         self.name = name
         self.damage = damage
+        self.damage_description = damage_description
         self.fatality = fatality
 
-# list of traps
+# some traps
 
-trap_spike = trap('spike trap',roll_die(1,4),'you barily notice the small spike on the floor as it penetrates your boot and injects lethal poison to your body')
+trap_spike = trap('spike trap',roll_die(1,4),'A large spike gashes your side. You groan in pain','You notice the yellow green substance at the tip of the spike. Snakefolk poison!\nYour world starts to spin and you slip into unconsciousness.')
+trap_rocks = trap('falling rocks',roll_die(1,6),'A barrage of heavy rocks falls of above, pummelling you','Suddenly, a large rock falls directly on your head, stunning you into unconsciousness.')
+
+traps = [trap_spike,trap_rocks]
 
 # the trap encounter
 
 def encounter_trap(trap,player):
-    print ("It's a trap!")
-    pause()
     if luck_test(player) is True:
         grid[includes.globals.row][includes.globals.col] = '#'
+        tell_story(trap_avoided)
         tell_story(advance)
     else:
         grid[includes.globals.row][includes.globals.col] = '#'
         trap_damage = trap.damage
         player.hp = player.hp-trap_damage+player.armor.damage_reduction
-        print ('took '+str(trap_damage+player.armor.damage_reduction)+' damage from '+trap.name+'.')
-        tell_story(advance)
+        tell_story(trap_triggered)
+        print ('\n'+trap.damage_description+' (you take '+str(trap_damage+player.armor.damage_reduction)+' damage)')
         if check_dead(player) is True:
-            globals.done = True # game over
+            includes.globals.done = True # game over
             clear_screen()
-            print ('\n'+trap.fatality+'. Your adventure ends here...\n')
-
+            print ('\n'+trap.fatality+'\n\nYour adventure ends here...\n')
+        else:
+            tell_story(advance)
 # rest site encounters
