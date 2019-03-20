@@ -25,6 +25,7 @@ class armor:
 
 iron_sword = weapon('iron sword','sword',1,roll_die(1,4),0,1)
 rusty_spear = weapon('rusty spear','spear',1,roll_die(1,4),0,0)
+poisoned_spear = weapon('poisoned spear','spear',1,roll_die(1,4),1,0)
 
 # list of natural
 
@@ -32,7 +33,7 @@ bite_attack = weapon('ferocious bite','natural',1,roll_die(1,4),0,0)
 
 # list of hero armors
 
-starter_armor = armor('iron gauntlets','armor',1,0,0)
+starter_armor = armor('iron braces','armor',1,0,0)
 
 # list of monster armors
 

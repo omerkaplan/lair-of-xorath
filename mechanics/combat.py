@@ -49,7 +49,7 @@ def combat(player,monster):
         roll = attacker.weapon.damage
         weapon_damage_bonus = attacker.weapon.damage_bonus
         defender.hp = (defender.hp-roll-crit_roll-weapon_damage_bonus+defender.armor.damage_reduction)
-        print (str(roll+crit_roll)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
+        print (str(roll+crit_roll+weapon_damage_bonus)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
 
     def roll_attack(attacker,defender):
         roll = roll_die(1,20)
@@ -96,6 +96,6 @@ def combat(player,monster):
         attack(monster,player)
         if check_dead(player) is True:
             clear_screen()
-            print ('\n'+monster.name+' '+monster.fatality+' Your adventure ends here...\n')
+            print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')
             globals.done = True # game over
             break
