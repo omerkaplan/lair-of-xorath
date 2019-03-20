@@ -16,7 +16,6 @@ from tabulate import tabulate
 
 
 def play_encounter(map_value):
-    print ('DEBUG -> Playing encounter: '+str(map_value))
     if map_value == 2:
         clear_screen()
         sleep (0.5)
@@ -36,6 +35,9 @@ def play_encounter(map_value):
         sleep (0.5)
         tell_story(exploring)
         encounter_trap(trap_spike,my_hero)
+    else:
+        print ('DEBUG -> Playing encounter: '+str(map_value))
+
 
 
 def move_east():
