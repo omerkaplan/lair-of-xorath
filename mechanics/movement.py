@@ -112,7 +112,7 @@ def player_action():
     elif direction_input == 'reflect' or direction_input == 'r':
         show_stats(my_hero)
     elif direction_input == 'help' or direction_input == '?':
-            table = [["Move [north,south,east,west]","n,s,e,w","Move in the lair"],["Reflect","r","Show your hero stats"],["Quit","q","Quits the game"]]
+            table = [["Move [north,south,east,west]","n,s,e,w","Move in the lair"],["Reflect","r","Show your hero stats"],["Quit","q","Quit the game"],["Help","?","Show this menu"]]
             print ('\nYou think about your training...\n')
             print (tabulate(table,headers=["Command","Shortcuts","What does it do"])+'\n')
 
