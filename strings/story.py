@@ -7,6 +7,8 @@ def tell_story(segment):
 
 exposition = [".:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.\n\n\nYou stand before the entrance to the lair of Xorath, a demon from the depths of the fire plains who made\nit his home decades ago next to the peaceful village of Hillsbard, your birthplace.\n\nFor the so called 'protection' of Hillsbard Xorath demanded one thing - the firstborn of every family at his or \nher's 18th birthday as a tribute. The people of Hillsbard unwillingly complied.\n\nMany brave women and men, champions and commoners alike, tried to set on a journey to slay the demon - none returned.\n\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.\n "]
 
+running_away = ["\n\nTo the south, you see a dim moon light pouring through the gate in which you came into Xorath's lair.\n\nRunning away will be your demise as the townsfolk has no choice but offering you to the demon as tribute.\n"]
+
 exploring = [
 '\nYou go deeper into the lair, passing along hallways and spaces.\nThe space seems to be twisting and turning\n',
 '\nYou walk carefully through several passages, going into a larger space.\nYou can barely make out your surrounding and you vision becomes limited\n',
@@ -23,7 +25,10 @@ advance = [
 '\nNo time to waste, time to move on...\n',
 '\nYou venture forth...\n',
 '\nTime to advance...\n',
-'\nYour destiny awaits, time to move...\n'
+'\nYour destiny awaits, time to move...\n',
+'\nTime to move...\n',
+'\nYou look around, considering your next move...\n',
+'\nYour mind is focused, ready for what is ahead...\n'
 ]
 
 trap_avoided = [
@@ -37,8 +42,10 @@ trap_triggered = [
 
 def monster_encounter(monster):
     list = [
-    'A '+monster.name+' appears!',
-    'You must fight a '+monster.name+' and his '+monster.weapon.name
+    'A '+monster.name+' jumps from the shadows, YOU MUST FIGHT!',
+    'You run head on into a '+monster.name+' and his '+monster.weapon.name+" - It's a fight to the death!",
+    'A '+monster.name+' notices you cresting the corner. YOU MUST FIGHT!',
+    "From the darkness ahead you see a "+monster.name+". You ready your weapon..."
     ]
     text = random.choice(list)
     print (text)

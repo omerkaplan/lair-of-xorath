@@ -86,7 +86,7 @@ def combat(player,monster):
         attack(player,monster)
         if check_dead(monster) is True:
             clear_screen()
-            print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'...\n')
+            print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'.\n')
             tell_story(advance)
             monster_reset(monster) # makes sure that the same monster type can fight another day
             grid[globals.row][globals.col] = '*'

@@ -23,11 +23,20 @@ class armor:
 
 # list of martial weapons
 
+#tier 1 - basic stuff
+
 iron_sword = weapon('iron sword','sword',1,roll_die(1,4),0,1)
 rusty_spear = weapon('rusty spear','spear',1,roll_die(1,4),0,0)
-poisoned_spear = weapon('poisoned spear','spear',1,roll_die(1,4),1,0)
+heavy_club = weapon('heavy club','club',1,roll_die(1,6),0,0)
 
-# list of natural
+t1_weapons = [iron_sword,rusty_spear,heavy_club]
+
+#tier 2 -
+poisoned_spear = weapon('poisoned spear','spear',2,roll_die(1,4),1,0)
+
+#tier 3 -
+
+# list of natural weapons
 
 bite_attack = weapon('ferocious bite','natural',1,roll_die(1,4),0,0)
 

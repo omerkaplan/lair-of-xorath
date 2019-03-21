@@ -71,7 +71,9 @@ def move_north():
 def move_south():
     globals.row = globals.row-1
     if globals.row < 0 and globals.col == 3:
-        print ('running out?')
+        clear_screen()
+        tell_story(running_away)
+        tell_story(advance)
         globals.row = 0
     elif globals.row < 0:
         print ("\nThe area to the south is blocked. You must find another way.\n")
