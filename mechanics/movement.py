@@ -45,37 +45,40 @@ def move_east():
 
     globals.col = globals.col+1
     if globals.col > 6:
-        print ("Edge of map - east side")
+        print ("\nThe area to the east is blocked. You must find another way.\n")
         globals.col = 6
-    play_encounter(grid[globals.row][globals.col])
+    else:
+        play_encounter(grid[globals.row][globals.col])
     #print ('Column: '+str(globals.col)+' Row: '+str(globals.row))
 
 def move_west():
     globals.col = globals.col-1
     if globals.col < 0:
-        print ("Edge of map - west side")
+        print ("\nThe area to the west is blocked. You must find another way.\n")
         globals.col = 0
-    #print ('Column: '+str(globals.col)+' Row: '+str(globals.row))
-    play_encounter(grid[globals.row][globals.col])
+    else:
+        play_encounter(grid[globals.row][globals.col])
 
 def move_north():
     globals.row = globals.row+1
     if globals.row > 5:
-        print ("Edge of map - north side")
+        print ("\nThe area to the north is blocked. You must find another way.\n")
         globals.row = 5
-    #print ('Column: '+str(globals.col)+' Row: '+str(globals.row))
-    play_encounter(grid[globals.row][globals.col])
+    else:
+        #print ('Column: '+str(globals.col)+' Row: '+str(globals.row))
+        play_encounter(grid[globals.row][globals.col])
 
 def move_south():
     globals.row = globals.row-1
     if globals.row < 0 and globals.col == 3:
         print ('running out?')
         globals.row = 0
-    if globals.row < 0:
-        print ("Edge of map - south side")
+    elif globals.row < 0:
+        print ("\nThe area to the south is blocked. You must find another way.\n")
         globals.row = 0
-    #print ('Column: '+str(globals.col)+' Row: '+str(globals.row))
-    play_encounter(grid[globals.row][globals.col])
+    else:
+        #print ('Column: '+str(globals.col)+' Row: '+str(globals.row))
+        play_encounter(grid[globals.row][globals.col])
 
 # main game movement
 
