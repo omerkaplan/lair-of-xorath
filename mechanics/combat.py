@@ -43,13 +43,29 @@ def monster_reset(monster):
     if monster.tier == 1 and monster.lootable is True:
         monster.weapon = random.choice(includes.equipment.t1_weapons)
 
+def loot_monster(player,monster):
+    print ('tell story - you look at '+monster.name+ "'s corpse and find a "+monster.weapon.name)
+    if monster.weapon.max_damage > player.weapon.max_damage:
+        print ('\ntell story - monsters weapon is better - LOOT IT!')
+        player.weapon = monster.weapon
+    elif monster.weapon.max_damage < player.weapon.max_damage:
+        print ('\ntell story - Your weapon is better')
+    elif monster.weapon.max_damage == player.weapon.max_damage: #we need to evaluate roll bonus
+        if monster.weapon.roll_bonus > player.weapon.roll_bonus:
+            print ('tell story - monsters weapons is better based on roll bonus - LOOT IT!')
+            player.weapon = monster.weapon
+        elif monster.weapon.roll_bonus < player.weapon.roll_bonus:
+            print ('tell story - your weapon is better from damage and roll bonus standpoint')
+        elif monster.weapon.roll_bonus == player.weapon.roll_bonus:
+            print ('both weapons are equal - keep yours')
+
 def combat(player,monster):
 
     def roll_damage(attacker,defender,crit):
         crit_roll = 0
         if crit is True:
-            crit_roll = attacker.weapon.damage
-        roll = attacker.weapon.damage
+            crit_roll = roll_die(attacker.weapon.damage_die_number,attacker.weapon.damage_die_sided)
+        roll = roll_die(attacker.weapon.damage_die_number,attacker.weapon.damage_die_sided)
         weapon_damage_bonus = attacker.weapon.damage_bonus
         defender.hp = (defender.hp-roll-crit_roll-weapon_damage_bonus+defender.armor.damage_reduction)
         print (str(roll+crit_roll+weapon_damage_bonus)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
@@ -90,6 +106,8 @@ def combat(player,monster):
         if check_dead(monster) is True:
             clear_screen()
             print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'.\n')
+            if monster.lootable is True:
+                loot_monster(player,monster)
             tell_story(advance)
             monster_reset(monster) # makes sure that the same monster type can fight another day
             grid[globals.row][globals.col] = '*'
@@ -103,6 +121,15 @@ def combat(player,monster):
         attack(monster,player)
         if check_dead(player) is True:
             clear_screen()
-            print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')
-            globals.done = True # game over
+            print ('\n'+monster.name+' is landing the final hit...\n')
+            if player.luck > 0:
+                pause()
+                clear_screen()
+                print ('\ntell story - you pray and your diety saves you. You are in the room with the monster, cannot attack but can go anywhere\n')
+                player.hp = player.initial_hp
+                player.luck = 0
+                tell_story(advance)
+            else:
+                print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')
+                globals.done = True # game over
             break

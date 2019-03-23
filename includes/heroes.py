@@ -12,4 +12,4 @@ class hero:
         self.weapon = weapon
         self.armor = armor
 
-my_hero = hero('hero',12,15,15,roll_die(2,6),equipment.iron_sword,equipment.starter_armor)
+my_hero = hero('hero',12,15,15,roll_die(2,6),equipment.starter_sword,equipment.starter_armor)
