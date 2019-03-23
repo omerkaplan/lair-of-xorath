@@ -43,7 +43,7 @@ trap_triggered = [
 def monster_encounter(monster):
     list = [
     'A '+monster.name+' jumps from the shadows, YOU MUST FIGHT!',
-    'You run head on into a '+monster.name+' and his '+monster.weapon.name+" - It's a fight to the death!",
+    'You run head on into a '+monster.name+' and his '+monster.weapon.type+" - It's a fight to the death!",
     'A '+monster.name+' notices you cresting the corner. YOU MUST FIGHT!',
     "From the darkness ahead you see a "+monster.name+". You ready your weapon..."
     ]

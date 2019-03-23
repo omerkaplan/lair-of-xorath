@@ -6,6 +6,7 @@ import random
 import includes.globals as globals
 from includes.world import * # get the world map
 from strings.story import *
+import includes.equipment
 
 
 # function
@@ -24,11 +25,11 @@ def luck_test(player): # luck test, returns True if lucky or False otherwise
     luck = player.luck
     roll = roll_die(2,6)
     if roll <= luck:
-        print ('\nLuck roll - success! '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
+        print ('Luck roll - success! '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
         player.luck = player.luck - 1
         return True
     elif roll > luck:
-        print ('\nLuck roll - failed '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
+        print ('Luck roll - failed '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
         return False
 
 def check_dead(object):
@@ -39,6 +40,8 @@ def check_dead(object):
 
 def monster_reset(monster):
     monster.hp = monster.initial_hp
+    if monster.tier == 1 and monster.lootable is True:
+        monster.weapon = random.choice(includes.equipment.t1_weapons)
 
 def combat(player,monster):
 
@@ -91,8 +94,12 @@ def combat(player,monster):
             monster_reset(monster) # makes sure that the same monster type can fight another day
             grid[globals.row][globals.col] = '*'
             break
+
         #monster turn
-        print ('\n'+monster.name+' attacks with '+monster.weapon.name+'...')
+        if monster.lootable is True:
+            print ('\n'+monster.name+' attacks with '+monster.weapon.type+'...')
+        else:
+            print ('\n'+monster.name+' attacks with '+monster.weapon.name+'...')
         attack(monster,player)
         if check_dead(player) is True:
             clear_screen()

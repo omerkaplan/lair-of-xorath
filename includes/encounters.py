@@ -58,4 +58,3 @@ def encounter_trap(trap,player):
             print ('\n'+trap.fatality+'\n\nYour adventure ends here...\n')
         else:
             tell_story(advance)
-# rest site encounters

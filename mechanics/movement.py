@@ -6,6 +6,7 @@ from includes.heroes import * # loads heroes
 from includes.monsters import * # loads monsters
 from includes.encounters import * # loads encounters
 from mechanics.combat import combat # die and combat mechanics
+from mechanics.combat import luck_test
 from mechanics.misc import show_stats
 from mechanics.rest import rest # resting at rest sites
 from strings.story import * # import the long story strings
@@ -13,6 +14,27 @@ from includes.generic import clear_screen
 from time import sleep
 import re
 from tabulate import tabulate
+
+def fight_or_flight(player,monster):
+    print ('tell story - you see a monster')
+    fof_choice = ''
+    while True:
+        fof_choice = input('\n(A)ttack the '+monster.name+' or (F)lee from battle? >> ').lower()
+        if fof_choice == 'attack' or fof_choice == 'a':
+            print ('\ntell story - combat the monster\n') #TODO
+            combat(my_hero,monster)
+            break
+        elif fof_choice == 'flee' or fof_choice == 'f':
+            print ('tell story - trying to avoid\n') #TODO: Luck test - if lucky avoided, if not fight
+            if luck_test(player) is True:
+                print ('tell story - avoided the encounter')
+                tell_story(advance)
+            else:
+                print ('failed luck test - must fight\n')
+                combat(player,monster)
+            break
+        else:
+            print ('\nThere is no time for that, you must choose...\n')
 
 
 def play_encounter(map_value):
@@ -23,6 +45,8 @@ def play_encounter(map_value):
         enemy = random.choice(monsters)
         monster_encounter(enemy)
         combat(my_hero,enemy)
+    elif map_value == 3:
+        fight_or_flight(my_hero,random.choice(monsters_t2))
     elif map_value == 5:
         clear_screen()
         sleep (0.5)

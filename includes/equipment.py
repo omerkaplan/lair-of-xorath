@@ -28,11 +28,13 @@ class armor:
 iron_sword = weapon('iron sword','sword',1,roll_die(1,4),0,1)
 rusty_spear = weapon('rusty spear','spear',1,roll_die(1,4),0,0)
 heavy_club = weapon('heavy club','club',1,roll_die(1,6),0,0)
+crude_axe = weapon('crude axe','axe',1,roll_die(1,3),0,0)
 
-t1_weapons = [iron_sword,rusty_spear,heavy_club]
+t1_weapons = [iron_sword,rusty_spear,heavy_club,crude_axe]
 
 #tier 2 -
 poisoned_spear = weapon('poisoned spear','spear',2,roll_die(1,4),1,0)
+flaming_sword = weapon('flaming sword','sword',2,roll_die(1,6),0,1)
 
 #tier 3 -
 
@@ -47,3 +49,4 @@ starter_armor = armor('iron braces','armor',1,0,0)
 # list of monster armors
 
 natural_hide = armor('Monster hide','armor',1,0,0)
+demon_hide = armor('Demon hide','armor',1,0,1)
