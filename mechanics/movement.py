@@ -50,6 +50,7 @@ def fight_or_flight(player,monster):
 # 99 - Lair entry
 # * - Visited, killed monster
 # $ - Visited, looted trasure
+# @ - Visited, rest site
 # # - Visited, springed trap
 
 def play_encounter(map_value):
@@ -96,6 +97,8 @@ def play_encounter(map_value):
         print ('\ntell story - room with a looted treasure\n')
     elif map_value == '#':
         print ('\ntell story - room with a springed trap\n')
+    elif map_value == '@':
+        print ('\ntell story - room with a visited rest site\n')
     else:
         print ('DEBUG -> Playing encounter: '+str(map_value))
 

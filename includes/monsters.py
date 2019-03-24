@@ -29,7 +29,7 @@ snakefolk = monster('Snakefolk',1,12,11,11,equipment.poisoned_spear,equipment.na
 
 # xorath
 
-xorath = monster('Xorath, the enslaver',98,16,20,20,equipment.youth_drinker,equipment.demon_hide,False,'tell story - Xorath kills you')
+xorath = monster('Xorath, the enslaver',98,14,15,15,equipment.youth_drinker,equipment.demon_hide,False,'tell story - Xorath kills you')
 
 monsters = [wererat,kobold]
 monsters_t2 = [lesser_demon,snakefolk]

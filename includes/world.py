@@ -16,4 +16,4 @@ grid[random.randint(1,5)][random.randint(0,6)] = 98 # xorath encounter
 for column in grid:
     for i, item in enumerate(column):
         if item == 0:
-           column[i] = numpy.random.choice(numpy.arange(1, 7), p=[0.3, 0.2, 0.2, 0.05, 0.05, 0.2])
+           column[i] = numpy.random.choice(numpy.arange(1, 7), p=[0.2, 0.25, 0.1, 0.2, 0.05, 0.2])

@@ -79,6 +79,9 @@ potion_health_major = potion('Potion of major healing',1,'hp',10)
 potion_health_super = potion('Elixir of rejuvination',2,'hp',10)
 potion_armor_minor = potion('Potion of barskin',1,'ac',1)
 potion_armor_major = potion('Elixir of protection',2,'ac',2)
+potion_luck_minor = potion('Potion of minor luck',1,'luck',2)
+potion_luck_major = potion('Potion of major luck',1,'luck',5)
+
 
 
 # lists
@@ -87,6 +90,6 @@ t1_weapons = [silver_sword,rusty_spear,heavy_club,iron_axe,long_sword,morning_st
 
 t2_weapons = [poisoned_spear,flaming_sword]
 
-armors = [elven_cape]
+armors = [elven_cape,elvenkind_hood,steel_breastplate,steel_helmet]
 
-potions = [potion_health_minor,potion_health_major,potion_health_super,potion_armor_minor,potion_armor_major]
+potions = [potion_health_minor,potion_health_major,potion_health_super,potion_armor_minor,potion_armor_major,potion_luck_minor,potion_luck_major]

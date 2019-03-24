@@ -1,4 +1,8 @@
 from mechanics.combat import roll_die
+import includes.globals
+from includes.world import * # loads the world map
+
+
 
 def rest(player):
     roll = roll_die(1,6)
@@ -8,3 +12,6 @@ def rest(player):
         print ('\nYou feel refreshed\n')
     else:
         print ('\nRegained '+str(roll)+'HP\n')
+
+    # burn the room so we cant exploit the encounter
+    grid[includes.globals.row][includes.globals.col] = '@'
