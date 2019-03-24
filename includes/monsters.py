@@ -24,9 +24,12 @@ giant_spider = monster('Giant Spider',1,9,10,10,equipment.bite_attack,equipment.
 
 # t2 monsters for harder encounter types
 
-lesser_demon = monster('Lesser Demon',2,13,11,11,equipment.flaming_sword,equipment.demon_hide,True,'some description')
+lesser_demon = monster('Lesser Demon',2,13,11,11,equipment.flaming_sword,equipment.demon_hide,True,'tell story - demon kills you')
 snakefolk = monster('Snakefolk',1,12,11,11,equipment.poisoned_spear,equipment.natural_hide,True,'quickly wraps around you and start crushing. You feel your bones buckle under the pressure.')
 
+# xorath
+
+xorath = monster('Xorath, the enslaver',98,16,20,20,equipment.youth_drinker,equipment.demon_hide,False,'tell story - Xorath kills you')
 
 monsters = [wererat,kobold]
 monsters_t2 = [lesser_demon,snakefolk]

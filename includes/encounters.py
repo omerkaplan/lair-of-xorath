@@ -9,22 +9,6 @@ from includes.world import * # get the world map
 from strings.story import *
 
 
-
-# Encounter legend
-# -------------------------
-# 1 - Safe passage
-# 2 - Monster, tier 1
-# 3 - Monster, tier 2
-# 4 - Treasure
-# 5 - Rest site
-# 6 - Trap
-# 98 - Xorath encounter
-# 99 - Lair entry
-# * - Visited, killed monster
-# $ - Visited, looted trasure
-# # - Visited, springed trap
-
-
 class trap:
     def __init__(self, name,damage,damage_description,fatality):
         self.name = name

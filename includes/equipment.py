@@ -52,6 +52,8 @@ flaming_sword = weapon('flaming sword','sword',2,1,6,0,1,6,True)
 
 #tier 3 -
 
+youth_drinker = weapon('The Youth Drinker','sword',98,1,8,0,1,8,False)
+
 # list of natural weapons
 
 bite_attack = weapon('ferocious bite','natural',1,1,4,0,0,4,False)

@@ -16,6 +16,7 @@ from time import sleep
 import re
 from tabulate import tabulate
 
+
 def fight_or_flight(player,monster):
     print ('tell story - you see a monster')
     fof_choice = ''
@@ -37,6 +38,19 @@ def fight_or_flight(player,monster):
         else:
             print ('\nThere is no time for that, you must choose...\n')
 
+# Encounter legend
+# -------------------------
+# 1 - Safe passage
+# 2 - Monster, tier 1
+# 3 - Monster, tier 2
+# 4 - Treasure
+# 5 - Rest site
+# 6 - Trap
+# 98 - Xorath encounter
+# 99 - Lair entry
+# * - Visited, killed monster
+# $ - Visited, looted trasure
+# # - Visited, springed trap
 
 def play_encounter(map_value):
     if map_value == 1:
@@ -72,6 +86,16 @@ def play_encounter(map_value):
         tell_story(exploring)
         trap = random.choice(traps)
         encounter_trap(trap,my_hero)
+    elif map_value == 98:
+        combat(my_hero,xorath)
+    elif map_value == 99:
+        print ('\ntell story - Entrance\n')
+    elif map_value == '*':
+        print ('\ntell story - room with a dead monster\n')
+    elif map_value == '$':
+        print ('\ntell story - room with a looted treasure\n')
+    elif map_value == '#':
+        print ('\ntell story - room with a springed trap\n')
     else:
         print ('DEBUG -> Playing encounter: '+str(map_value))
 

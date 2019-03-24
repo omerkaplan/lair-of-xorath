@@ -37,6 +37,8 @@ def check_dead(object):
         print ('\n💀 '+object.name+' is dead\n')
         pause()
         return True
+    else:
+        return False
 
 def monster_reset(monster):
     monster.hp = monster.initial_hp
@@ -58,6 +60,15 @@ def loot_monster(player,monster):
             print ('It looks like it would not bring you much value at its current condition, you leave it behind.')
         elif monster.weapon.roll_bonus == player.weapon.roll_bonus:
             print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name+'. You leave it behind')
+
+def siphon_soul(monster, player):
+    print ('\nYou feel the wrath of '+monster.weapon.name+'...\n')
+    if luck_test(player) is True:
+        pass
+    else:
+        print (monster.name+' uses siphon soul... (tell story)\n')
+        player.hp = player.hp-1
+        monster.hp = monster.hp+1
 
 def combat(player,monster):
 
@@ -136,3 +147,5 @@ def combat(player,monster):
                 print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')
                 globals.done = True # game over
             break
+        elif check_dead(player) is False and monster.name == 'Xorath, the enslaver':
+            siphon_soul(monster,player)
