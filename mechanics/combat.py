@@ -44,20 +44,20 @@ def monster_reset(monster):
         monster.weapon = random.choice(includes.equipment.t1_weapons)
 
 def loot_monster(player,monster):
-    print ('tell story - you look at '+monster.name+ "'s corpse and find a "+monster.weapon.name)
+    print ('\nYou examine the '+monster.name+ "'s corpse and find its "+monster.weapon.name+'\n')
     if monster.weapon.max_damage > player.weapon.max_damage:
-        print ('\ntell story - monsters weapon is better - LOOT IT!')
+        print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
         player.weapon = monster.weapon
     elif monster.weapon.max_damage < player.weapon.max_damage:
-        print ('\ntell story - Your weapon is better')
+        print ('It looks like it would not bring you much value at its current condition, you leave it behind.')
     elif monster.weapon.max_damage == player.weapon.max_damage: #we need to evaluate roll bonus
         if monster.weapon.roll_bonus > player.weapon.roll_bonus:
-            print ('tell story - monsters weapons is better based on roll bonus - LOOT IT!')
+            print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
             player.weapon = monster.weapon
         elif monster.weapon.roll_bonus < player.weapon.roll_bonus:
-            print ('tell story - your weapon is better from damage and roll bonus standpoint')
+            print ('It looks like it would not bring you much value at its current condition, you leave it behind.')
         elif monster.weapon.roll_bonus == player.weapon.roll_bonus:
-            print ('both weapons are equal - keep yours')
+            print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name+'. You leave it behind')
 
 def combat(player,monster):
 
@@ -121,13 +121,16 @@ def combat(player,monster):
         attack(monster,player)
         if check_dead(player) is True:
             clear_screen()
-            print ('\n'+monster.name+' is landing the final hit...\n')
+            #print ('\n'+monster.name+' is landing the final hit...\n')
             if player.luck > 0:
-                pause()
                 clear_screen()
-                print ('\ntell story - you pray and your diety saves you. You are in the room with the monster, cannot attack but can go anywhere\n')
+                tell_story(saved_by_diety_monster)
+                # note that when you pray the monster TYPE doesnt reset so next time you meet it
+                # you will have an easier time finishing it off.
+                # should it work on Xorath?
                 player.hp = player.initial_hp
                 player.luck = 0
+                tell_story(frozen_in_time)
                 tell_story(advance)
             else:
                 print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')

@@ -8,6 +8,7 @@ from includes.encounters import * # loads encounters
 from mechanics.combat import combat # die and combat mechanics
 from mechanics.combat import luck_test
 from mechanics.misc import show_stats
+from mechanics.misc import loot
 from mechanics.rest import rest # resting at rest sites
 from strings.story import * # import the long story strings
 from includes.generic import clear_screen
@@ -25,7 +26,7 @@ def fight_or_flight(player,monster):
             combat(my_hero,monster)
             break
         elif fof_choice == 'flee' or fof_choice == 'f':
-            print ('tell story - trying to avoid\n') #TODO: Luck test - if lucky avoided, if not fight
+            print ('tell story - trying to avoid\n')
             if luck_test(player) is True:
                 print ('tell story - avoided the encounter')
                 tell_story(advance)
@@ -38,7 +39,11 @@ def fight_or_flight(player,monster):
 
 
 def play_encounter(map_value):
-    if map_value == 2:
+    if map_value == 1:
+        clear_screen()
+        sleep (0.5)
+        tell_story(exploring)
+    elif map_value == 2:
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -46,7 +51,13 @@ def play_encounter(map_value):
         monster_encounter(enemy)
         combat(my_hero,enemy)
     elif map_value == 3:
-        fight_or_flight(my_hero,random.choice(monsters_t2))
+        clear_screen()
+        sleep (0.5)
+        tell_story(exploring)
+        t2_monster = random.choice(monsters_t2)
+        fight_or_flight(my_hero,t2_monster)
+    elif map_value == 4:
+        loot(my_hero)
     elif map_value == 5:
         clear_screen()
         sleep (0.5)

@@ -21,6 +21,13 @@ class armor:
         self.ac_bonus = ac_bonus # magical armor will increase your AC
         self.damage_reduction = damage_reduction # magical armor can reduce points of damage
 
+class potion:
+    def __init__(self, name , tier,effect_stat ,effect_points):
+        self.name = name
+        self.tier = tier
+        self.effect_stat = effect_stat
+        self.effect_points = effect_points
+
 
 
 # list of martial weapons
@@ -56,3 +63,13 @@ starter_armor = armor('iron braces','armor',1,0,0)
 
 natural_hide = armor('Monster hide','armor',1,0,0)
 demon_hide = armor('Demon hide','armor',1,0,1)
+
+# list of potions
+
+potion_health_minor = potion('Potion of minor healing',1,'hp',5)
+potion_health_major = potion('Potion of major healing',1,'hp',10)
+potion_health_super = potion('Elixir of rejuvination',2,'hp',10)
+potion_armor_minor = potion('Potion of barskin',1,'ac',1)
+potion_armor_major = potion('Elixir of protection',2,'ac',2)
+
+potions = [potion_health_minor,potion_health_major,potion_health_super,potion_armor_minor,potion_armor_major]

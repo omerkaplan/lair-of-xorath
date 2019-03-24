@@ -6,7 +6,7 @@ class hero:
     def __init__(self, name, ac,hp,initial_hp,luck,weapon,armor):
         self.name = name
         self.ac = ac
-        self.hp = initial_hp
+        self.hp = hp
         self.initial_hp = initial_hp
         self.luck = luck
         self.weapon = weapon

@@ -40,6 +40,11 @@ trap_triggered = [
 '\nThe lair is dark and you cross a small overhead pass on your way forward. You notice small string attahced\nto the floor a second too late. A trap!'
 ]
 
+saved_by_diety_monster = [".:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.\n\n\nAs the monster lands its final blow, your world fades to white.\n\nWhen you open your eyes, or at least you think that is what you did, you find yourself in\nan unfamilar place - you are everywhere and you are nowhere.\n\n\"I have been following you mortal\" says a voice in the distance. \n\n\"Know that I am Hera, the diety of mercy and I have chosen to aid you in your quest\"\n\n\"When you wake up I will grant you safe passage. Gather your strength and end the blight that plagues your world!\"\n\nEndless colors fills your view and your world spins\n\n\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.\n "]
+
+frozen_in_time = ['\nYou are in the room where you were struck down. The monster seems to be gone but you better hurry up and leave.\n']
+
+
 def monster_encounter(monster):
     list = [
     'A '+monster.name+' jumps from the shadows, YOU MUST FIGHT!',
