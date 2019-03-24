@@ -57,6 +57,7 @@ def play_encounter(map_value):
         t2_monster = random.choice(monsters_t2)
         fight_or_flight(my_hero,t2_monster)
     elif map_value == 4:
+        print ('tell story - loot room\n')
         loot(my_hero)
     elif map_value == 5:
         clear_screen()

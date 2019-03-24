@@ -68,7 +68,7 @@ def combat(player,monster):
         roll = roll_die(attacker.weapon.damage_die_number,attacker.weapon.damage_die_sided)
         weapon_damage_bonus = attacker.weapon.damage_bonus
         defender.hp = (defender.hp-roll-crit_roll-weapon_damage_bonus+defender.armor.damage_reduction)
-        print (str(roll+crit_roll+weapon_damage_bonus)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
+        print (str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
 
     def roll_attack(attacker,defender):
         roll = roll_die(1,20)
