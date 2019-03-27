@@ -45,3 +45,8 @@ def title():
     clear_screen()
     print ("\n\nToday is your 18th birthday. It is night time it's quiet.\n\nWith a torch one hand and a "+my_hero.weapon.type+" in the other, wearing a leather armor bearing your\nfamily's crest and "+my_hero.armor.name+", you have one goal in mind -\nvanquish Xorath and set the people of Hillsbard free.")
     tell_story(advance)
+    try:
+        with open('save_game.pkl', 'rb') as input:
+            pass
+    except FileNotFoundError:
+        print ("\nTIP: use '?' for list of avilable commands\n")

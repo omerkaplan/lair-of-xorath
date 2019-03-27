@@ -35,8 +35,6 @@ def luck_test(player): # luck test, returns True if lucky or False otherwise
 
 def check_dead(object):
     if object.hp <=0:
-        print ('\n💀 '+object.name+' is dead\n')
-        pause()
         return True
     else:
         return False
@@ -81,6 +79,8 @@ def combat(player,monster):
         weapon_damage_bonus = attacker.weapon.damage_bonus
         defender.hp = (defender.hp-roll-crit_roll-weapon_damage_bonus+defender.armor.damage_reduction)
         print (str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
+        if attacker.name == 'Xorath, the enslaver':
+            siphon_soul(attacker,defender)
 
     def roll_attack(attacker,defender):
         roll = roll_die(1,20)
@@ -116,13 +116,18 @@ def combat(player,monster):
         print ('\nYou swing your '+player.weapon.name+'...')
         attack(player,monster)
         if check_dead(monster) is True:
-            clear_screen()
             if monster.name == "Xorath, the enslaver":
+                print ('\n💀 '+monster.name+' is dead\n')
+                pause()
+                clear_screen()
                 includes.generic.reset_game(player)
                 print ('\nVICTORY SEQUENCE!\n')
                 globals.done = True # game over
                 break
             else:
+                print ('\n💀 '+monster.name+' is dead\n')
+                pause()
+                clear_screen()
                 print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'.\n')
                 if monster.lootable is True:
                     loot_monster(player,monster)
@@ -136,10 +141,13 @@ def combat(player,monster):
             print ('\n'+monster.name+' attacks with '+monster.weapon.type+'...')
         else:
             print ('\n'+monster.name+' attacks with '+monster.weapon.name+'...')
+
         attack(monster,player)
+
         if check_dead(player) is True:
+            print ('\n💀 You died in combat\n')
+            pause()
             clear_screen()
-            #print ('\n'+monster.name+' is landing the final hit...\n')
             if player.luck > 0:
                 clear_screen()
                 tell_story(saved_by_diety_monster)
@@ -154,5 +162,3 @@ def combat(player,monster):
                 print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')
                 globals.done = True # game over
             break
-        elif check_dead(player) is False and monster.name == 'Xorath, the enslaver':
-            siphon_soul(monster,player)

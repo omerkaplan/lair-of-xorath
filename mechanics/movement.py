@@ -19,21 +19,30 @@ from tabulate import tabulate
 
 
 def fight_or_flight(player,monster):
-    print ('tell story - you see a monster')
-    fof_choice = ''
+    if monster.name == "Xorath, the enslaver":
+        print ('tell story - Xorath on his throne taunting you')
+    else:
+        print ('tell story - you see a monster')
+    fof_choice = ""
     while True:
-        fof_choice = input('\n(A)ttack the '+monster.name+' or (F)lee from battle? >> ').lower()
+        fof_choice = input('\n(A)ttack '+monster.name+' or (F)lee from battle? >> ').lower()
         if fof_choice == 'attack' or fof_choice == 'a':
-            print ('\ntell story - combat the monster\n') #TODO
+            if monster.name == "Xorath, the enslaver":
+                print ('\ntell story - Xorath will fight you now\n')
+            else:
+                print ('\ntell story - combat the monster\n')
             combat(my_hero,monster)
             break
         elif fof_choice == 'flee' or fof_choice == 'f':
             print ('tell story - trying to avoid\n')
             if luck_test(player) is True:
-                print ('tell story - avoided the encounter')
+                print ('tell story - avoided the encounter!')
                 tell_story(advance)
             else:
-                print ('failed luck test - must fight\n')
+                if monster.name == "Xorath, the enslaver":
+                    print ('\ntell story - You failed to flee Xorath and he wants to fight\n')
+                else:
+                    print ('\ntell story - failed to flee and must fight...\n')
                 combat(player,monster)
             break
         else:
@@ -103,7 +112,8 @@ def play_encounter(map_value):
         encounter_trap(trap,my_hero)
 
     elif map_value == 98:
-        combat(my_hero,xorath)
+        tell_story(exploring)
+        fight_or_flight(my_hero,xorath)
 
     elif map_value == 99:
         clear_screen()
