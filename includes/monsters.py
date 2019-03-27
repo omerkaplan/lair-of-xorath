@@ -19,7 +19,7 @@ class monster:
 # list of monsters and thier stats
 
 wererat = monster('Wererat',1,12,10,10,random.choice(equipment.t1_weapons),equipment.natural_hide,True,'chops your head and feasts on your corpse.')
-kobold = monster('Kobold',1,12,10,10,random.choice(equipment.t1_weapons),equipment.natural_hide,True,'drags your corpse to his camp where this tribe will feast upon it for days to come.')
+kobold = monster('Kobold',1,12,10,10,random.choice(equipment.t1_weapons),equipment.natural_hide,True,'drags your corpse to his camp where his tribe will feast upon it for days to come.')
 giant_spider = monster('Giant Spider',1,9,10,10,equipment.bite_attack,equipment.natural_hide,False,'bites your head off.')
 
 # t2 monsters for harder encounter types

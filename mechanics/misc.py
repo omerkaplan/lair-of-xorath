@@ -44,21 +44,24 @@ def loot(player):
     # now that we have loot, let's evaluate it
 
     if isinstance(loot, potion): #if this is a potion, drink it
-        print ('\nYou find '+loot.name+' and drink it.\n')
+        print ('\nYou find a vial filled with liquid and recognize it as '+loot.name+'. You drink the potion.\n')
         def drink_potion(stat,value,potion_tier):
             player.__dict__[stat] = player.__dict__[stat]+value
             if stat == 'hp':
-                print ('The potion taste sweet and you can feel healier (🧪 Gained ' +str(value)+str(stat.upper())+')\n')
+                print ('The liquid taste like fruit and herbs and you can feel your body find some relief (🧪 Gained ' +str(value)+str(stat.upper())+')\n')
                 if potion_tier is 1:
                     if player.hp > player.initial_hp:
                         player.hp = player.initial_hp # since we dont want extra HP on regular potions
             elif stat == 'ac':
-                print ('The potion taste slightly bitter and you can feel your skin hardens (🧪 Gained '+str(value)+str(stat.upper())+')\n')
+                print ('The potion taste like mushrooms, earth and spices. You can feel your skin hardens (🧪 Gained '+str(value)+str(stat.upper())+')\n')
+            elif stat == 'luck':
+                print ("The potion taste sweet and has a calming effect on your body.\nYou feel optimistic about your future - maybe you'll make it out alive after all! (🧪 Gained "+str(value)+str(stat.upper())+')\n')
+
 
         drink_potion(loot.effect_stat,loot.effect_points,loot.tier)
 
     elif isinstance(loot, weapon): #if it's a weapon, evaluate it
-        print ('You find - '+loot.name)
+        print ('\nFound: '+loot.name+'!\n')
         if loot.max_damage > player.weapon.max_damage:
             print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
             player.weapon = loot
@@ -74,7 +77,7 @@ def loot(player):
                 print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name+'. You leave it behind')
 
     elif isinstance(loot, armor): #if it's an armor, evaluate it
-        print ('You find - '+loot.name)
+        print ('\nFound: '+loot.name+'!\n')
         if loot.ac_bonus > player.armor.ac_bonus:
             print ('This looks like a fine armor that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.armor.name+' behind.')
             player.armor = loot

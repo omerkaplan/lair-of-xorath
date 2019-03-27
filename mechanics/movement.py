@@ -58,6 +58,7 @@ def play_encounter(map_value):
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
+
     elif map_value == 2:
         clear_screen()
         sleep (0.5)
@@ -65,15 +66,21 @@ def play_encounter(map_value):
         enemy = random.choice(monsters)
         monster_encounter(enemy)
         combat(my_hero,enemy)
+
     elif map_value == 3:
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
         t2_monster = random.choice(monsters_t2)
         fight_or_flight(my_hero,t2_monster)
+
     elif map_value == 4:
-        print ('tell story - loot room\n')
+        clear_screen()
+        sleep (0.5)
+        tell_story(loot_room)
         loot(my_hero)
+        tell_story(advance)
+
     elif map_value == 5:
         clear_screen()
         sleep (0.5)
@@ -81,16 +88,23 @@ def play_encounter(map_value):
         tell_story(resting)
         rest(my_hero)
         tell_story(advance)
+
     elif map_value == 6:
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
         trap = random.choice(traps)
         encounter_trap(trap,my_hero)
+
     elif map_value == 98:
         combat(my_hero,xorath)
+
     elif map_value == 99:
-        print ('\ntell story - Entrance\n')
+        clear_screen()
+        sleep (0.5)
+        tell_story(lair_entrance)
+        tell_story(advance)
+        
     elif map_value == '*':
         print ('\ntell story - room with a dead monster\n')
     elif map_value == '$':

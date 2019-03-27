@@ -44,6 +44,13 @@ saved_by_diety_monster = [".:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*
 
 frozen_in_time = ['\nYou are in the room where you were struck down. The monster seems to be gone but you better hurry up and leave.\n']
 
+loot_room = ["\nYou keep moving through some tight spaces and your eye catches something glittering.\nA closer look reveals a stash hidden inside the wall. You dig through the various items...\n",
+"\nAll of a sudden, your arm bumps against something hard. You turn your head and see a wooden drawer built in the wall!\nYou open it and start rvaging through the various items...\n"
+]
+
+lair_entrance = ["\nYou stand at the entrance to Xorath's lair, it seems like you went in just minutes ago? Or was it hours?\n",
+"\nYou stand at the entrance to Xorath's lair. As bleek and awe inspiring as you remember it coming in\n"
+]
 
 def monster_encounter(monster):
     list = [
