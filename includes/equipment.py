@@ -37,7 +37,7 @@ class potion:
 
 #tier 1 - basic stuff
 
-starter_sword = weapon('iron sword','sword',1,1,3,0,0,3,False) #hero only
+starter_weapon = weapon('iron sword','sword',1,1,3,0,0,3,False) #hero only
 
 silver_sword = weapon('silver sword','sword',1,1,4,0,1,4,True)
 rusty_spear = weapon('rusty spear','spear',1,1,4,0,0,4,True)

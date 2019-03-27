@@ -7,6 +7,7 @@ import includes.globals as globals
 from includes.world import * # get the world map
 from strings.story import *
 import includes.equipment
+import includes.generic
 
 
 # function
@@ -116,13 +117,19 @@ def combat(player,monster):
         attack(player,monster)
         if check_dead(monster) is True:
             clear_screen()
-            print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'.\n')
-            if monster.lootable is True:
-                loot_monster(player,monster)
-            tell_story(advance)
-            monster_reset(monster) # makes sure that the same monster type can fight another day
-            grid[globals.row][globals.col] = '*'
-            break
+            if monster.name == "Xorath, the enslaver":
+                includes.generic.reset_game(player)
+                print ('\nVICTORY SEQUENCE!\n')
+                globals.done = True # game over
+                break
+            else:
+                print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'.\n')
+                if monster.lootable is True:
+                    loot_monster(player,monster)
+                tell_story(advance)
+                monster_reset(monster) # makes sure that the same monster type can fight another day
+                grid[globals.row][globals.col] = '*'
+                break
 
         #monster turn
         if monster.lootable is True:

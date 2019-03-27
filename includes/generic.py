@@ -5,13 +5,23 @@ from includes.heroes import my_hero
 import pickle
 
 def save_game(hero_object):
-    pass
+    with open('save_game.pkl', 'wb') as output:
+        hero_save = hero_object
+        pickle.dump(hero_save, output, pickle.HIGHEST_PROTOCOL)
 
 def load_game(hero_object):
-    pass
+    try:
+        with open('save_game.pkl', 'rb') as input:
+            load_object = pickle.load(input)
+            print ('game loaded')
+            hero_object.weapon = load_object.weapon
+            hero_object.armor = load_object.armor
+    except FileNotFoundError:
+        pass
 
 def reset_game(hero_object):
-    pass
+    hero_object.reset()
+    save_game(hero_object)
 
 def clear_screen():
     os.system('clear')

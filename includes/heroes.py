@@ -1,4 +1,4 @@
-import includes.equipment as equipment
+import includes.equipment
 from mechanics.combat import roll_die
 import pickle
 
@@ -13,4 +13,8 @@ class hero:
         self.weapon = weapon
         self.armor = armor
 
-my_hero = hero('hero',12,15,15,roll_die(2,6),equipment.starter_sword,equipment.starter_armor)
+    def reset(self):
+        self.weapon = includes.equipment.starter_weapon
+        self.armor = includes.equipment.starter_armor
+
+my_hero = hero('hero',12,15,15,roll_die(2,6),includes.equipment.starter_weapon,includes.equipment.starter_armor)

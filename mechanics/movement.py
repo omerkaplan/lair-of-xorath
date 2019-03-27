@@ -12,6 +12,7 @@ from mechanics.misc import loot
 from mechanics.rest import rest # resting at rest sites
 from strings.story import * # import the long story strings
 from includes.generic import clear_screen
+from includes.generic import save_game
 from time import sleep
 import re
 from tabulate import tabulate
@@ -58,6 +59,7 @@ def play_encounter(map_value):
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
+        tell_story(advance)
 
     elif map_value == 2:
         clear_screen()
@@ -66,6 +68,7 @@ def play_encounter(map_value):
         enemy = random.choice(monsters)
         monster_encounter(enemy)
         combat(my_hero,enemy)
+        save_game(my_hero)
 
     elif map_value == 3:
         clear_screen()
@@ -73,12 +76,15 @@ def play_encounter(map_value):
         tell_story(exploring)
         t2_monster = random.choice(monsters_t2)
         fight_or_flight(my_hero,t2_monster)
+        save_game(my_hero)
+        tell_story(advance)
 
     elif map_value == 4:
         clear_screen()
         sleep (0.5)
         tell_story(loot_room)
         loot(my_hero)
+        save_game(my_hero)
         tell_story(advance)
 
     elif map_value == 5:
@@ -104,7 +110,7 @@ def play_encounter(map_value):
         sleep (0.5)
         tell_story(lair_entrance)
         tell_story(advance)
-        
+
     elif map_value == '*':
         print ('\ntell story - room with a dead monster\n')
     elif map_value == '$':
