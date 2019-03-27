@@ -2,6 +2,16 @@ import os
 import includes.globals # globals variables, most notebly 'done' for game over
 from strings.story import *
 from includes.heroes import my_hero
+import pickle
+
+def save_game(hero_object):
+    pass
+
+def load_game(hero_object):
+    pass
+
+def reset_game(hero_object):
+    pass
 
 def clear_screen():
     os.system('clear')

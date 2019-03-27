@@ -10,6 +10,7 @@ from includes.world import * # loads the world map
 #from mechanics.combat import combat # die and combat mechanics
 from mechanics.movement import player_action
 from strings.story import tell_story
+import pickle
 #from mechanics.misc import show_stats
 #import includes.equipment
 

@@ -17,7 +17,8 @@ exploring = [
 ]
 
 resting = [
-'\nYou rest to pick up strength...\n'
+'\nThis area seems good enough to stop and rest. You set down on the ground and eat one of your rations\nThe taste reminds you of home and you feel much better.\n',
+'\nYou stop in an area that seems safe enough to catch your breath.\nIt has been quite the journey so far and you take a moment to rest and reflect.\n',
 ]
 
 advance = [

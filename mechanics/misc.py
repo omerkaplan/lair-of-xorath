@@ -53,7 +53,7 @@ def loot(player):
                     if player.hp > player.initial_hp:
                         player.hp = player.initial_hp # since we dont want extra HP on regular potions
             elif stat == 'ac':
-                print ('The potion taste like mushrooms, earth and spices. You can feel your skin hardens (🧪 Gained '+str(value)+str(stat.upper())+')\n')
+                print ('The potion taste like mushrooms, earth and spices. You can feel your skin hardens (🧪 Gained '+str(value)+' '+str(stat.upper())+')\n')
             elif stat == 'luck':
                 print ("The potion taste sweet and has a calming effect on your body.\nYou feel optimistic about your future - maybe you'll make it out alive after all! (🧪 Gained "+str(value)+str(stat.upper())+')\n')
 

@@ -1,5 +1,6 @@
 import includes.equipment as equipment
 from mechanics.combat import roll_die
+import pickle
 
 
 class hero:
