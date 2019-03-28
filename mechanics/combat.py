@@ -116,7 +116,7 @@ def combat(player,monster):
         print ('\nYou swing your '+player.weapon.name+'...')
         attack(player,monster)
         if check_dead(monster) is True:
-            if monster.name == "Xorath, the enslaver":
+            if monster.tier == 98:
                 print ('\n💀 '+monster.name+' is dead\n')
                 pause()
                 clear_screen()
@@ -153,9 +153,11 @@ def combat(player,monster):
                 tell_story(saved_by_diety_monster)
                 # note that when you pray the monster TYPE doesnt reset so next time you meet it
                 # you will have an easier time finishing it off.
-                # should it work on Xorath?
+                # does NOT work on Xorath
                 player.hp = player.initial_hp
                 player.luck = 0
+                if monster.tier == 98: # Xorath has to be beaten in a fair combat
+                    monster_reset(monster)
                 tell_story(frozen_in_time)
                 tell_story(advance)
             else:

@@ -19,7 +19,7 @@ from tabulate import tabulate
 
 
 def fight_or_flight(player,monster):
-    if monster.name == "Xorath, the enslaver":
+    if monster.tier == 98:
         print ('tell story - Xorath on his throne taunting you')
     else:
         print ('tell story - you see a monster')
@@ -27,7 +27,7 @@ def fight_or_flight(player,monster):
     while True:
         fof_choice = input('\n(A)ttack '+monster.name+' or (F)lee from battle? >> ').lower()
         if fof_choice == 'attack' or fof_choice == 'a':
-            if monster.name == "Xorath, the enslaver":
+            if monster.tier == 98:
                 print ('\ntell story - Xorath will fight you now\n')
             else:
                 print ('\ntell story - combat the monster\n')
@@ -39,7 +39,7 @@ def fight_or_flight(player,monster):
                 print ('tell story - avoided the encounter!')
                 tell_story(advance)
             else:
-                if monster.name == "Xorath, the enslaver":
+                if monster.tier == 98:
                     print ('\ntell story - You failed to flee Xorath and he wants to fight\n')
                 else:
                     print ('\ntell story - failed to flee and must fight...\n')
@@ -86,7 +86,6 @@ def play_encounter(map_value):
         t2_monster = random.choice(monsters_t2)
         fight_or_flight(my_hero,t2_monster)
         save_game(my_hero)
-        tell_story(advance)
 
     elif map_value == 4:
         clear_screen()

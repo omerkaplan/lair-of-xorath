@@ -43,7 +43,7 @@ def loot(player):
 
     # now that we have loot, let's evaluate it
 
-    if isinstance(loot, potion): #if this is a potion, drink it
+    if isinstance(loot, Potion): #if this is a potion, drink it
         print ('\nYou find a vial filled with liquid and recognize it as '+loot.name+'. You drink the potion.\n')
         def drink_potion(stat,value,potion_tier):
             player.__dict__[stat] = player.__dict__[stat]+value
@@ -60,7 +60,7 @@ def loot(player):
 
         drink_potion(loot.effect_stat,loot.effect_points,loot.tier)
 
-    elif isinstance(loot, weapon): #if it's a weapon, evaluate it
+    elif isinstance(loot, Weapon): #if it's a weapon, evaluate it
         print ('\nFound: '+loot.name+'!\n')
         if loot.max_damage > player.weapon.max_damage:
             print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
@@ -76,7 +76,7 @@ def loot(player):
             elif loot.roll_bonus == player.weapon.roll_bonus:
                 print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name+'. You leave it behind')
 
-    elif isinstance(loot, armor): #if it's an armor, evaluate it
+    elif isinstance(loot, Armor): #if it's an armor, evaluate it
         print ('\nFound: '+loot.name+'!\n')
         if loot.ac_bonus > player.armor.ac_bonus:
             print ('This looks like a fine armor that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.armor.name+' behind.')

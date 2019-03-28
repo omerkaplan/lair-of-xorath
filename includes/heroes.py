@@ -3,7 +3,7 @@ from mechanics.combat import roll_die
 import pickle
 
 
-class hero:
+class Hero:
     def __init__(self, name, ac,hp,initial_hp,luck,weapon,armor):
         self.name = name
         self.ac = ac
@@ -17,4 +17,4 @@ class hero:
         self.weapon = includes.equipment.starter_weapon
         self.armor = includes.equipment.starter_armor
 
-my_hero = hero('hero',12,15,15,roll_die(2,6),includes.equipment.starter_weapon,includes.equipment.starter_armor)
+my_hero = Hero('hero',12,15,15,roll_die(2,6),includes.equipment.starter_weapon,includes.equipment.starter_armor)

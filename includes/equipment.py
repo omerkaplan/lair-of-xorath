@@ -2,7 +2,7 @@ from mechanics.combat import roll_die
 
 # equipment classes
 
-class weapon:
+class Weapon:
     def __init__(self, name, type, tier, damage_die_number, damage_die_sided ,damage_bonus, roll_bonus,max_damage,lootable):
         self.name = name
         self.type = type
@@ -14,7 +14,7 @@ class weapon:
         self.max_damage = max_damage
         self.lootable = lootable
 
-class armor:
+class Armor:
     def __init__(self, name, type, tier, ac_bonus, damage_reduction,lootable):
         self.name = name
         self.type = type
@@ -24,7 +24,7 @@ class armor:
         self.lootable = lootable
 
 
-class potion:
+class Potion:
     def __init__(self, name , tier,effect_stat ,effect_points):
         self.name = name
         self.tier = tier
@@ -37,50 +37,52 @@ class potion:
 
 #tier 1 - basic stuff
 
-starter_weapon = weapon('iron sword','sword',1,1,3,0,0,3,False) #hero only
+starter_weapon = Weapon('iron sword','sword',1,1,3,0,0,3,False) #hero only
 
-silver_sword = weapon('silver sword','sword',1,1,4,0,1,4,True)
-rusty_spear = weapon('rusty spear','spear',1,1,4,0,0,4,True)
-heavy_club = weapon('heavy club','club',1,1,6,0,0,6,True)
-long_sword = weapon('longsword','sword',1,1,6,0,0,6,True)
-iron_axe = weapon('iron axe','axe',1,1,3,0,1,3,True)
-morning_star = weapon('morning star','flail',1,2,3,0,0,6,True)
+silver_sword = Weapon('silver sword','sword',1,1,4,0,1,4,True)
+rusty_spear = Weapon('rusty spear','spear',1,1,4,0,0,4,True)
+heavy_club = Weapon('heavy club','club',1,1,6,0,0,6,True)
+long_sword = Weapon('longsword','sword',1,1,6,0,0,6,True)
+iron_axe = Weapon('iron axe','axe',1,1,3,0,1,3,True)
+morning_star = Weapon('morning star','flail',1,2,3,0,0,6,True)
 
 #tier 2 -
-poisoned_spear = weapon('poisoned spear','spear',2,1,4,1,0,5,True)
-flaming_sword = weapon('flaming sword','sword',2,1,6,0,1,6,True)
+poisoned_spear = Weapon('poisoned spear','spear',2,1,4,1,0,5,True)
+flaming_sword = Weapon('flaming sword','sword',2,1,6,0,1,6,True)
+rune_sword = Weapon('rune sword','sword',2,1,6,1,1,6,True)
 
 #tier 3 -
 
-youth_drinker = weapon('The Youth Drinker','sword',98,1,8,0,1,8,False)
+youth_drinker = Weapon('The Youth Drinker','sword',98,1,8,0,1,8,False)
 
 # list of natural weapons
 
-bite_attack = weapon('ferocious bite','natural',1,1,4,0,0,4,False)
+bite_attack = Weapon('ferocious bite','natural',1,1,4,0,0,4,False)
 
 # list of hero armors
 
-starter_armor = armor('iron braces','armor',1,0,0,False)
-elven_cape = armor ('elven cape','armor',1,0,1,True)
-elvenkind_hood = armor ('elvenkind hood','armor',1,0,1,True)
-steel_breastplate = armor ('steel breastplate','armor',1,1,0,True)
-steel_helmet = armor ('steel helmet','armor',1,1,0,True)
+starter_armor = Armor('iron braces','armor',1,0,0,False)
+elven_cape = Armor ('elven cape','armor',1,0,1,True)
+elvenkind_hood = Armor ('elvenkind hood','armor',1,0,1,True)
+steel_breastplate = Armor ('steel breastplate','armor',1,1,0,True)
+steel_helmet = Armor ('steel helmet','armor',1,1,0,True)
 
 
 # list of monster armors
 
-natural_hide = armor('Monster hide','armor',1,0,0,False)
-demon_hide = armor('Demon hide','armor',1,0,1,False)
+natural_hide = Armor('Monster hide','armor',1,0,0,False)
+demon_hide = Armor('Demon hide','armor',1,0,1,False)
+rusty_plate = Armor('Rusty plate','armor',1,0,0,False)
 
 # list of potions
 
-potion_health_minor = potion('Potion of minor healing',1,'hp',5)
-potion_health_major = potion('Potion of major healing',1,'hp',10)
-potion_health_super = potion('Elixir of rejuvination',2,'hp',10)
-potion_armor_minor = potion('Potion of barskin',1,'ac',1)
-potion_armor_major = potion('Elixir of protection',2,'ac',2)
-potion_luck_minor = potion('Potion of minor luck',1,'luck',2)
-potion_luck_major = potion('Potion of major luck',1,'luck',5)
+potion_health_minor = Potion('Potion of minor healing',1,'hp',5)
+potion_health_major = Potion('Potion of major healing',1,'hp',10)
+potion_health_super = Potion('Elixir of rejuvination',2,'hp',10)
+potion_armor_minor = Potion('Potion of barskin',1,'ac',1)
+potion_armor_major = Potion('Elixir of protection',2,'ac',2)
+potion_luck_minor = Potion('Potion of minor luck',1,'luck',2)
+potion_luck_major = Potion('Potion of major luck',1,'luck',5)
 
 
 

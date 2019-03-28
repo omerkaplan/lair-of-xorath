@@ -9,7 +9,7 @@ from includes.world import * # get the world map
 from strings.story import *
 
 
-class trap:
+class Trap:
     def __init__(self, name,damage,damage_description,fatality):
         self.name = name
         self.damage = damage
@@ -18,8 +18,8 @@ class trap:
 
 # some traps
 
-trap_spike = trap('spike trap',roll_die(1,4),'A large spike gashes your side. You groan in pain','You notice the yellow green substance at the tip of the spike. Snakefolk poison!\nYour world starts to spin and you slip into unconsciousness.')
-trap_rocks = trap('falling rocks',roll_die(1,6),'A barrage of heavy rocks falls of above, pummelling you','Suddenly, a large rock falls directly on your head, stunning you into unconsciousness.')
+trap_spike = Trap('spike trap',roll_die(1,4),'A large spike gashes your side. You groan in pain','You notice the yellow green substance at the tip of the spike. Snakefolk poison!\nYour world starts to spin and you slip into unconsciousness.')
+trap_rocks = Trap('falling rocks',roll_die(1,6),'A barrage of heavy rocks falls of above, pummelling you','Suddenly, a large rock falls directly on your head, stunning you into unconsciousness.')
 
 traps = [trap_spike,trap_rocks]
 
