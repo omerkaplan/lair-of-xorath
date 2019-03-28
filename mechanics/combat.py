@@ -89,7 +89,7 @@ def combat(player,monster):
             print ('Critical Miss! (🎲 '+str(roll)+')')
             return [False,False] #no hit no crit regardless of AC
         if roll is 20:
-            print ('Critial Hit! (🎲 '+str(roll)+')')
+            print ('Critical Hit! (🎲 '+str(roll)+')')
             return [True,True] #hit and crit regardless of AC
         elif roll_with_bonuses >= defender.ac+defender.armor.ac_bonus:
             print ("It's a hit! (🎲 "+str(roll)+'+'+str(attacker.weapon.roll_bonus)+'='+str(roll_with_bonuses)+")")
