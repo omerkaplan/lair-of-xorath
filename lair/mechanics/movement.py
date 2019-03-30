@@ -20,29 +20,29 @@ from tabulate import tabulate
 
 def fight_or_flight(player,monster):
     if monster.tier == 98:
-        print ('tell story - Xorath on his throne taunting you')
+        pass # this is handled by the encounter
     else:
-        print ('tell story - you see a monster')
+        print ("In the shadows you get a glimse of a "+monster.name+". It didn\'t notice you yet.")
     fof_choice = ""
     while True:
         fof_choice = input('\n(A)ttack '+monster.name+' or (F)lee from battle? >> ').lower()
         if fof_choice == 'attack' or fof_choice == 'a':
             if monster.tier == 98:
-                print ('\ntell story - Xorath will fight you now\n')
+                print ("\n\"So be it...\"\n\nXorath gets up from this throne and pick up his greatsword.")
             else:
-                print ('\ntell story - combat the monster\n')
+                print ("\nYou charge forward with your "+player.weapon.name+". TIME TO FIGHT!")
             combat(my_hero,monster)
             break
         elif fof_choice == 'flee' or fof_choice == 'f':
-            print ('tell story - trying to avoid\n')
+            print ("\nYou try to slip into the shadows and remain undetected...\n")
             if luck_test(player) is True:
-                print ('tell story - avoided the encounter!')
+                print ("\nYou turn back into the room\'s entrance.\n")
                 tell_story(advance)
             else:
                 if monster.tier == 98:
-                    print ('\ntell story - You failed to flee Xorath and he wants to fight\n')
+                    print ("\nXorath gets up from his throne and pick up his black greatsword\n\n\"On second thought, I\'ll just end you now.\"\n\nTIME TO FIGHT!")
                 else:
-                    print ('\ntell story - failed to flee and must fight...\n')
+                    print ("\nYou try to slip into the shadows but not without getting the "+monster.name+"\'s attention. TIME TO FIGHT!\n")
                 combat(player,monster)
             break
         else:
@@ -90,6 +90,7 @@ def play_encounter(map_value):
     elif map_value == 4:
         clear_screen()
         sleep (0.5)
+        tell_story(exploring)
         tell_story(loot_room)
         loot(my_hero)
         save_game(my_hero)
@@ -111,7 +112,10 @@ def play_encounter(map_value):
         encounter_trap(trap,my_hero)
 
     elif map_value == 98:
-        tell_story(exploring)
+        clear_screen()
+        sleep (0.5)
+        tell_story(xorath_room)
+        tell_story(xorath_taunt)
         fight_or_flight(my_hero,xorath)
 
     elif map_value == 99:
@@ -121,13 +125,35 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == '*':
-        print ('\ntell story - room with a dead monster\n')
+        clear_screen()
+        sleep (0.5)
+        tell_story(exploring)
+        tell_story(slain_monster)
+        tell_story(advance)
+
     elif map_value == '$':
-        print ('\ntell story - room with a looted treasure\n')
+        clear_screen()
+        sleep (0.5)
+        tell_story(exploring)
+        tell_story(looted_treasure)
+        tell_story(advance)
+
     elif map_value == '#':
-        print ('\ntell story - room with a springed trap\n')
+        clear_screen()
+        sleep (0.5)
+        tell_story(exploring)
+        tell_story(springed_trap)
+        tell_story(advance)
+
+
     elif map_value == '@':
-        print ('\ntell story - room with a visited rest site\n')
+        clear_screen()
+        sleep (0.5)
+        tell_story(exploring)
+        tell_story(visited_rest_site)
+        tell_story(advance)
+
+
     else:
         print ('DEBUG -> Playing encounter: '+str(map_value))
 
@@ -178,7 +204,7 @@ def move_south():
 
 def player_action():
     direction_input = input("> ").lower()
-    if 'move' in direction_input:
+    if 'move' in direction_input or 'go' in direction_input:
         try:
             break_out = re.sub("[^\w]", " ",  direction_input).split() #putting all values in a dict
             if len(break_out) < 3:
@@ -207,10 +233,10 @@ def player_action():
     elif direction_input == 'q' or direction_input == 'quit':
         clear_screen()
         includes.globals.done = True
-    elif direction_input == 'reflect' or direction_input == 'r':
+    elif direction_input == 'reflect' or direction_input == 'r' or direction_input == 'c':
         show_stats(my_hero)
     elif direction_input == 'help' or direction_input == '?':
-            table = [["Move [north,south,east,west]","n,s,e,w","Move in the lair"],["Reflect","r","Show your hero stats"],["Quit","q","Quit the game"],["Help","?","Show this menu"]]
+            table = [["Move \\ Go [north,south,east,west]","n,s,e,w","Move in the lair"],["Reflect","r \\ c","Show your hero stats"],["Quit","q","Quit the game"],["Help","?","Show this menu"]]
             print ('\nYou think about your training...\n')
             print (tabulate(table,headers=["Command","Shortcuts","What does it do"])+'\n')
 

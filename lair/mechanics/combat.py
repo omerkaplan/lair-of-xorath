@@ -120,8 +120,10 @@ def combat(player,monster):
                 print ('\n💀 '+monster.name+' is dead\n')
                 pause()
                 clear_screen()
-                includes.generic.reset_game(player)
-                print ('\nVICTORY SEQUENCE!\n')
+                includes.generic.reset_game(player) #resets the hero to starting position
+                tell_story(xorath_dies)
+                pause()
+                includes.generic.credits()
                 globals.done = True # game over
                 break
             else:

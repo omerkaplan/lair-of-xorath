@@ -44,16 +44,16 @@ def loot(player):
     # now that we have loot, let's evaluate it
 
     if isinstance(loot, Potion): #if this is a potion, drink it
-        print ('\nYou find a vial filled with liquid and recognize it as '+loot.name+'. You drink the potion.\n')
+        print ('\nYou find a vial filled with liquid and recognize it as '+loot.name+'. You drink the potion...\n')
         def drink_potion(stat,value,potion_tier):
             player.__dict__[stat] = player.__dict__[stat]+value
             if stat == 'hp':
-                print ('The liquid taste like fruit and herbs and you can feel your body find some relief (🧪 Gained ' +str(value)+str(stat.upper())+')\n')
+                print ('The liquid taste like fruit and herbs and you can feel your body find some relief \n\n(🧪 Gained ' +str(value)+str(stat.upper())+')\n')
                 if potion_tier is 1:
                     if player.hp > player.initial_hp:
                         player.hp = player.initial_hp # since we dont want extra HP on regular potions
             elif stat == 'ac':
-                print ('The potion taste like mushrooms, earth and spices. You can feel your skin hardens (🧪 Gained '+str(value)+' '+str(stat.upper())+')\n')
+                print ('The potion taste like mushrooms, earth and spices. You can feel your skin hardens \n\n(🧪 Gained '+str(value)+' '+str(stat.upper())+')\n')
             elif stat == 'luck':
                 print ("The potion taste sweet and has a calming effect on your body.\nYou feel optimistic about your future - maybe you'll make it out alive after all! (🧪 Gained "+str(value)+str(stat.upper())+')\n')
 

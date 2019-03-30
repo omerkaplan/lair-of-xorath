@@ -50,3 +50,13 @@ def title():
             pass
     except FileNotFoundError:
         print ("\nTIP: use '?' for list of avilable commands\n")
+
+def credits():
+    clear_screen()
+    print ("\n\n------------------------------------------")
+    print ("Thank you for playing Lair of Xorath!")
+    print ("Version "+includes.globals.game_version+"\n")
+    print ("Brought to you by Omer Kaplan")
+    print ("https://github.com/omerkaplan/\n")
+    print ("In memory of Kevin Slattery (1977-2018)")
+    print ("------------------------------------------\n\n")
