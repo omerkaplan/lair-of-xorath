@@ -28,7 +28,7 @@ _You stand before the entrance to the lair of Xorath, a demon from the depths of
 * Enjoy!
 <br/>
 
-## Supported Commands ('?' in game)
+## Supported Commands
 | Command | Shortcuts | Action |
 | ----------- | ----------- | ----------- |
 | Go \ Move [north,south,east,west] | n , s , e , w | Move in the lair
