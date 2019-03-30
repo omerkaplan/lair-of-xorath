@@ -30,7 +30,7 @@ ghost_armor = Monster('Ghost Armor',2,15,8,8,equipment.rune_sword,equipment.rust
 
 # xorath
 
-xorath = Monster('Xorath, the enslaver',98,1,1,1,equipment.youth_drinker,equipment.demon_hide,False,"drains your life and let your body decay lifeless on the floor.\n\nSoon your bones will adorn the demon\'s throne.")
+xorath = Monster('Xorath, the enslaver',98,14,15,15,equipment.youth_drinker,equipment.demon_hide,False,"drains your life and let your body decay lifeless on the floor.\n\nSoon your bones will adorn the demon\'s throne.")
 
 monsters = [wererat,kobold,giant_spider]
 monsters_t2 = [lesser_demon,snakefolk,ghost_armor]

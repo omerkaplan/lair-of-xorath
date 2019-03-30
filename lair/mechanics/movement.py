@@ -240,7 +240,7 @@ def player_action():
             print ('\nYou think about your training...\n')
             print (tabulate(table,headers=["Command","Shortcuts","What does it do"])+'\n')
 
-    elif direction_input == 'map':
+    elif direction_input == 'blacksheepwall': #shows a map with encounter keys
         for column in reversed(grid):
             print (column)
         print ('')
