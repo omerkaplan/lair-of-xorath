@@ -7,7 +7,7 @@ game_version = "1.1" # game version
 
 done = False #done governs the span of the session. True is game over
 
-xorath_is_dead = False # for end od game checks
+xorath_is_dead = False # for end of game checks
 
 # player initial position on map (assuming 7x7 grid)
 
@@ -22,5 +22,8 @@ session_duration = session_end_time-session_start_time
 rooms_visited = 0
 monsters_killed = 0
 monsters_avoided = 0
+traps_disarmed = 0
+traps_triggered = 0
+times_rested = 0
 loot_found = 0
 cheats_used = "No"

@@ -29,6 +29,7 @@ traps = [trap_spike,trap_rocks]
 def encounter_trap(trap,player):
     if luck_test(player) is True:
         grid[includes.globals.row][includes.globals.col] = '#'
+        includes.globals.traps_disarmed = includes.globals.traps_disarmed+1
         tell_story(trap_avoided)
         tell_story(advance)
     else:
@@ -36,6 +37,7 @@ def encounter_trap(trap,player):
         trap_damage = trap.damage
         player.hp = player.hp-trap_damage+player.armor.damage_reduction
         tell_story(trap_triggered)
+        includes.globals.traps_triggered = includes.globals.traps_triggered+1
         print ('\n'+trap.damage_description+' (you take '+str(trap_damage+player.armor.damage_reduction)+' damage)')
         if check_dead(player) is True:
             includes.globals.done = True # game over

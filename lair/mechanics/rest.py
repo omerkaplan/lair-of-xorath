@@ -15,3 +15,6 @@ def rest(player):
 
     # burn the room so we cant exploit the encounter
     grid[includes.globals.row][includes.globals.col] = '@'
+
+    # increment stats
+    includes.globals.times_rested = includes.globals.times_rested+1
