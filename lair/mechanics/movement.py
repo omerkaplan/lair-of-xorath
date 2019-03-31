@@ -35,8 +35,10 @@ def fight_or_flight(player,monster):
             break
         elif fof_choice == 'flee' or fof_choice == 'f':
             print ("\nYou try to slip into the shadows and remain undetected...\n")
+            globals.monsters_avoided = globals.monsters_avoided+1
             if luck_test(player) is True:
                 print ("\nYou turn back into the room\'s entrance.\n")
+                globals.monsters_avoided = globals.monsters_avoided+1
                 tell_story(advance)
             else:
                 if monster.tier == 98:
@@ -65,12 +67,14 @@ def fight_or_flight(player,monster):
 
 def play_encounter(map_value):
     if map_value == 1:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
         tell_story(advance)
 
     elif map_value == 2:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -80,6 +84,7 @@ def play_encounter(map_value):
         save_game(my_hero)
 
     elif map_value == 3:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -88,6 +93,8 @@ def play_encounter(map_value):
         save_game(my_hero)
 
     elif map_value == 4:
+        globals.rooms_visited = globals.rooms_visited+1
+        globals.loot_found = globals.loot_found+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -97,6 +104,7 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == 5:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -105,6 +113,7 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == 6:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -112,6 +121,7 @@ def play_encounter(map_value):
         encounter_trap(trap,my_hero)
 
     elif map_value == 98:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(xorath_room)
@@ -119,12 +129,14 @@ def play_encounter(map_value):
         fight_or_flight(my_hero,xorath)
 
     elif map_value == 99:
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(lair_entrance)
         tell_story(advance)
 
     elif map_value == '*':
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -132,6 +144,7 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == '$':
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -139,6 +152,7 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == '#':
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -147,6 +161,7 @@ def play_encounter(map_value):
 
 
     elif map_value == '@':
+        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -244,5 +259,6 @@ def player_action():
         for column in reversed(grid):
             print (column)
         print ('')
+        includes.globals.cheats_used = "Yes"
     else:
         print ("\nYou seem confused. The 'help' command may assist.\n")

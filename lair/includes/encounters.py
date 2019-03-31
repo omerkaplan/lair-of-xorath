@@ -7,6 +7,7 @@ from mechanics.combat import check_dead
 from includes.heroes import *
 from includes.world import * # get the world map
 from strings.story import *
+import datetime
 
 
 class Trap:
@@ -40,5 +41,8 @@ def encounter_trap(trap,player):
             includes.globals.done = True # game over
             clear_screen()
             print ('\n'+trap.fatality+'\n\nYour adventure ends here...\n')
+            includes.globals.session_end_time = datetime.datetime.now()
+            includes.globals.session_duration = includes.globals.session_end_time-includes.globals.session_start_time
+
         else:
             tell_story(advance)

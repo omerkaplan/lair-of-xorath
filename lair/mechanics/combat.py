@@ -3,6 +3,7 @@
 from time import sleep
 import os
 import random
+import datetime
 import includes.globals as globals
 from includes.world import * # get the world map
 from strings.story import *
@@ -121,10 +122,10 @@ def combat(player,monster):
                 print ('\n💀 '+monster.name+' is dead\n')
                 pause()
                 clear_screen()
-                includes.generic.reset_game(player) #resets the hero to starting position
                 tell_story(xorath_dies)
-                pause()
-                includes.generic.credits()
+                globals.xorath_is_dead = True
+                globals.session_end_time = datetime.datetime.now()
+                globals.session_duration = globals.session_end_time-globals.session_start_time
                 globals.done = True # game over
                 break
             else:
@@ -137,6 +138,7 @@ def combat(player,monster):
                 tell_story(advance)
                 monster_reset(monster) # makes sure that the same monster type can fight another day
                 grid[globals.row][globals.col] = '*'
+                globals.monsters_killed = globals.monsters_killed+1 #for the stats
                 break
 
         #monster turn
@@ -165,5 +167,7 @@ def combat(player,monster):
                 tell_story(advance)
             else:
                 print ('\n'+monster.name+' '+monster.fatality+'\n\nYour adventure ends here...\n')
+                globals.session_end_time = datetime.datetime.now()
+                globals.session_duration = globals.session_end_time-globals.session_start_time
                 globals.done = True # game over
             break
