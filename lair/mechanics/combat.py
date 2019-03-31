@@ -65,9 +65,10 @@ def siphon_soul(monster, player):
     if luck_test(player) is True:
         pass
     else:
-        print (monster.name+' uses siphon soul... (tell story)\n')
-        player.hp = player.hp-1
-        monster.hp = monster.hp+1
+        siphon_soul_damage = 1
+        print ("\n"+monster.weapon.name+' feeds your life force to Xorath (You take '+str(siphon_soul_damage)+' damage)\n')
+        player.hp = player.hp-siphon_soul_damage
+        monster.hp = monster.hp+siphon_soul_damage
 
 def combat(player,monster):
 
