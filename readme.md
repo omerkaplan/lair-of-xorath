@@ -17,6 +17,7 @@ _You stand before the entrance to the lair of Xorath, a demon from the depths of
 * d20 inspired combat system
 * Fighting fantasy inspired skill check system
 * Scrathes the fighting itch: 8-15 minutes to beat
+* Session stats at the end of each session 
 
 <br/>
 
