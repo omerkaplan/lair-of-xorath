@@ -71,6 +71,8 @@ steel_helmet = Armor('steel helmet','armor',1,1,0,True)
 dwarven_breastplate = Armor('dwarven breastplate','armor',2,2,0,True)
 dwarven_helmet = Armor('dwarven helmet','armor',2,0,2,True)
 demonhide_gloves = Armor('demonhide gloves','armor',2,1,1,True)
+gloves_of_endurance = Armor('gloves of endurance','armor',2,2,1,True)
+braces_of_protection = Armor('braces of protection','armor',2,1,2,True)
 ring_of_hera = Armor('ring of Hera','ring',3,2,2,True) # Hera is the goddess of Mercy
 
 
@@ -98,6 +100,6 @@ t1_weapons = [silver_sword,rusty_spear,heavy_club,iron_axe,long_sword,morning_st
 
 t2_weapons = [poisoned_spear,flaming_sword,rune_sword,dwarven_handaxe,sword_of_arran]
 
-armors = [elven_cape,elvenkind_hood,steel_breastplate,steel_helmet,dwarven_helmet,dwarven_breastplate,demonhide_gloves,ring_of_hera]
+armors = [elven_cape,elvenkind_hood,steel_breastplate,steel_helmet,dwarven_helmet,dwarven_breastplate,demonhide_gloves,gloves_of_endurance,braces_of_protection,ring_of_hera]
 
 potions = [potion_health_minor,potion_health_major,potion_health_super,potion_armor_minor,potion_armor_major,potion_armor_super,potion_luck_minor,potion_luck_major]

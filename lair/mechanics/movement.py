@@ -144,7 +144,6 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == '$':
-        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -152,7 +151,6 @@ def play_encounter(map_value):
         tell_story(advance)
 
     elif map_value == '#':
-        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
@@ -161,7 +159,6 @@ def play_encounter(map_value):
 
 
     elif map_value == '@':
-        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)
