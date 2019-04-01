@@ -50,6 +50,8 @@ morning_star = Weapon('morning star','flail',1,2,3,0,0,6,True)
 poisoned_spear = Weapon('poisoned spear','spear',2,1,4,1,0,5,True)
 flaming_sword = Weapon('flaming sword','sword',2,1,6,0,1,6,True)
 rune_sword = Weapon('rune sword','sword',2,1,6,1,1,6,True)
+dwarven_handaxe = Weapon('dwarven hand axe','axe',2,1,8,1,0,9,True)
+sword_of_arran = Weapon('sword of Arran','sword',2,1,8,1,1,9,True) # Arran is the goddess of Justice
 
 #tier 3 -
 
@@ -65,7 +67,11 @@ starter_armor = Armor('iron braces','armor',1,0,0,False)
 elven_cape = Armor ('elven cape','armor',1,0,1,True)
 elvenkind_hood = Armor ('elvenkind hood','armor',1,0,1,True)
 steel_breastplate = Armor ('steel breastplate','armor',1,1,0,True)
-steel_helmet = Armor ('steel helmet','armor',1,1,0,True)
+steel_helmet = Armor('steel helmet','armor',1,1,0,True)
+dwarven_breastplate = Armor('dwarven breastplate','armor',2,2,0,True)
+dwarven_helmet = Armor('dwarven helmet','armor',2,0,2,True)
+demonhide_gloves = Armor('demonhide gloves','armor',2,1,1,True)
+ring_of_hera = Armor('ring of Hera','ring',3,2,2,True) # Hera is the goddess of Mercy
 
 
 # list of monster armors
@@ -80,18 +86,18 @@ potion_health_minor = Potion('Potion of minor healing',1,'hp',5)
 potion_health_major = Potion('Potion of major healing',1,'hp',10)
 potion_health_super = Potion('Elixir of rejuvination',2,'hp',10)
 potion_armor_minor = Potion('Potion of barskin',1,'ac',1)
-potion_armor_major = Potion('Elixir of protection',2,'ac',2)
+potion_armor_major = Potion('Potion of stone skin',1,'ac',2)
+potion_armor_super = Potion('Elixir of protection',2,'ac',3)
 potion_luck_minor = Potion('Potion of minor luck',1,'luck',2)
 potion_luck_major = Potion('Potion of major luck',1,'luck',5)
-
 
 
 # lists
 
 t1_weapons = [silver_sword,rusty_spear,heavy_club,iron_axe,long_sword,morning_star]
 
-t2_weapons = [poisoned_spear,flaming_sword]
+t2_weapons = [poisoned_spear,flaming_sword,rune_sword,dwarven_handaxe,sword_of_arran]
 
-armors = [elven_cape,elvenkind_hood,steel_breastplate,steel_helmet]
+armors = [elven_cape,elvenkind_hood,steel_breastplate,steel_helmet,dwarven_helmet,dwarven_breastplate,demonhide_gloves,ring_of_hera]
 
-potions = [potion_health_minor,potion_health_major,potion_health_super,potion_armor_minor,potion_armor_major,potion_luck_minor,potion_luck_major]
+potions = [potion_health_minor,potion_health_major,potion_health_super,potion_armor_minor,potion_armor_major,potion_armor_super,potion_luck_minor,potion_luck_major]
