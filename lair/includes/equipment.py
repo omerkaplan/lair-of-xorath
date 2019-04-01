@@ -49,7 +49,7 @@ morning_star = Weapon('morning star','flail',1,2,3,0,0,6,True)
 #tier 2 -
 poisoned_spear = Weapon('poisoned spear','spear',2,1,4,1,0,5,True)
 flaming_sword = Weapon('flaming sword','sword',2,1,6,0,1,6,True)
-rune_sword = Weapon('rune sword','sword',2,1,6,1,1,6,True)
+rune_sword = Weapon('rune sword','sword',2,1,6,1,1,7,True)
 dwarven_handaxe = Weapon('dwarven hand axe','axe',2,1,8,1,0,9,True)
 sword_of_arran = Weapon('sword of Arran','sword',2,1,8,1,1,9,True) # Arran is the goddess of Justice
 
