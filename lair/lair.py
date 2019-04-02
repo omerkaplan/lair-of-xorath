@@ -7,10 +7,18 @@ from includes.generic import show_session_stats
 from includes.heroes import my_hero # loads heroes
 from includes.world import * # loads the world map
 from mechanics.movement import player_action
+import sys
+import os
 
+
+# run lair.py --reset to delete the save file and reset game
+
+if len(sys.argv) > 1 and sys.argv[1] == "--reset":
+    os.remove("save_game.pkl")
+else:
+    load_game(my_hero)
 
 # a new hope...
-load_game(my_hero) #loads the save file
 
 title()
 

@@ -3,7 +3,7 @@ import datetime
 
 # global variables that are shared across all implementations and not module specific
 
-game_version = "1.1" # game version
+game_version = "1.2: \"Becon of hope\"" # game version
 
 done = False #done governs the span of the session. True is game over
 
