@@ -46,20 +46,20 @@ def monster_reset(monster):
         monster.weapon = random.choice(includes.equipment.t1_weapons)
 
 def loot_monster(player,monster):
-    print ('\nYou examine the '+monster.name+ "'s corpse and find its "+monster.weapon.name+'\n')
+    print ('\nYou examine the '+monster.name+ "'s corpse and find its "+monster.weapon.name.lower()+'\n')
     if monster.weapon.max_damage > player.weapon.max_damage:
-        print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
+        print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name.lower()+' behind.')
         player.weapon = monster.weapon
     elif monster.weapon.max_damage < player.weapon.max_damage:
         print ('It looks like it would not bring you much value at its current condition, you leave it behind.')
     elif monster.weapon.max_damage == player.weapon.max_damage: #we need to evaluate roll bonus
         if monster.weapon.roll_bonus > player.weapon.roll_bonus:
-            print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
+            print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name.lower()+' behind.')
             player.weapon = monster.weapon
         elif monster.weapon.roll_bonus < player.weapon.roll_bonus:
             print ('It looks like it would not bring you much value at its current condition, you leave it behind.')
         elif monster.weapon.roll_bonus == player.weapon.roll_bonus:
-            print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name+'. You leave it behind')
+            print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name.lower()+'. You leave it behind')
 
 def siphon_soul(monster, player):
     print ('\nYou feel the wrath of '+monster.weapon.name+'...\n')
@@ -79,8 +79,12 @@ def combat(player,monster):
             crit_roll = roll_die(attacker.weapon.damage_die_number,attacker.weapon.damage_die_sided)
         roll = roll_die(attacker.weapon.damage_die_number,attacker.weapon.damage_die_sided)
         weapon_damage_bonus = attacker.weapon.damage_bonus
-        defender.hp = (defender.hp-roll-crit_roll-weapon_damage_bonus+defender.armor.damage_reduction)
-        print (str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
+        total_damage = roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction
+        if total_damage <= 0:
+            print (defender.armor.name+" absorbs the damage!"+' (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
+        else:
+            defender.hp = (defender.hp-total_damage)
+            print (str(total_damage)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
         if attacker.name == 'Xorath, the enslaver':
             siphon_soul(attacker,defender)
 
@@ -115,7 +119,7 @@ def combat(player,monster):
     while monster.hp > 0 and player.hp > 0:
 
         #player turn
-        print ('\nYou swing your '+player.weapon.name+'...')
+        print ('\nYou swing your '+player.weapon.name.lower()+'...')
         attack(player,monster)
         if check_dead(monster) is True:
             if monster.tier == 98:
@@ -143,9 +147,9 @@ def combat(player,monster):
 
         #monster turn
         if monster.lootable is True:
-            print ('\n'+monster.name+' attacks with '+monster.weapon.type+'...')
+            print ('\n'+monster.name+' attacks with '+monster.weapon.type.lower()+'...')
         else:
-            print ('\n'+monster.name+' attacks with '+monster.weapon.name+'...')
+            print ('\n'+monster.name+' attacks with '+monster.weapon.name.lower()+'...')
 
         attack(monster,player)
 

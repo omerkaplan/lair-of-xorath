@@ -30,7 +30,7 @@ def fight_or_flight(player,monster):
             if monster.tier == 98:
                 print ("\n\"So be it...\"\n\nXorath gets up from this throne and pick up his greatsword.")
             else:
-                print ("\nYou charge forward with your "+player.weapon.name+". TIME TO FIGHT!")
+                print ("\nYou charge forward with your "+player.weapon.name.lower()+". TIME TO FIGHT!")
             combat(my_hero,monster)
             break
         elif fof_choice == 'flee' or fof_choice == 'f':
@@ -244,6 +244,8 @@ def player_action():
         move_south()
     elif direction_input == 'q' or direction_input == 'quit':
         clear_screen()
+        includes.globals.session_end_time = datetime.datetime.now()
+        includes.globals.session_duration = includes.globals.session_end_time-includes.globals.session_start_time
         includes.globals.done = True
     elif direction_input == 'reflect' or direction_input == 'r' or direction_input == 'c':
         show_stats(my_hero)

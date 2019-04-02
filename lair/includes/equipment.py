@@ -37,21 +37,21 @@ class Potion:
 
 #tier 1 - basic stuff
 
-starter_weapon = Weapon('iron sword','sword',1,1,3,0,0,3,False) #hero only
+starter_weapon = Weapon('Iron sword','sword',1,1,3,0,0,3,False) #hero only
 
-silver_sword = Weapon('silver sword','sword',1,1,4,0,1,4,True)
-rusty_spear = Weapon('rusty spear','spear',1,1,4,0,0,4,True)
-heavy_club = Weapon('heavy club','club',1,1,6,0,0,6,True)
-long_sword = Weapon('longsword','sword',1,1,6,0,0,6,True)
-iron_axe = Weapon('iron axe','axe',1,1,3,0,1,3,True)
-morning_star = Weapon('morning star','flail',1,2,3,0,0,6,True)
+silver_sword = Weapon('Silver sword','sword',1,1,4,0,1,4,True)
+rusty_spear = Weapon('Rusty spear','spear',1,1,4,0,0,4,True)
+heavy_club = Weapon('Heavy club','club',1,1,6,0,0,6,True)
+long_sword = Weapon('Longsword','sword',1,1,6,0,0,6,True)
+iron_axe = Weapon('Iron axe','axe',1,1,3,0,1,3,True)
+morning_star = Weapon('Morning star','flail',1,2,3,0,0,6,True)
 
 #tier 2 -
-poisoned_spear = Weapon('poisoned spear','spear',2,1,4,1,0,5,True)
-flaming_sword = Weapon('flaming sword','sword',2,1,6,0,1,6,True)
-rune_sword = Weapon('rune sword','sword',2,1,6,1,1,7,True)
-dwarven_handaxe = Weapon('dwarven hand axe','axe',2,1,8,1,0,9,True)
-sword_of_arran = Weapon('sword of Arran','sword',2,1,8,1,1,9,True) # Arran is the goddess of Justice
+poisoned_spear = Weapon('Poisoned spear','spear',2,1,4,1,0,5,True)
+flaming_sword = Weapon('Flaming sword','sword',2,1,6,0,1,6,True)
+rune_sword = Weapon('Rune sword','sword',2,1,6,1,1,7,True)
+dwarven_handaxe = Weapon('Dwarven hand axe','axe',2,1,8,1,0,9,True)
+sword_of_arran = Weapon('Sword of Arran','sword',2,1,8,1,1,9,True) # Arran is the goddess of Justice
 
 #tier 3 -
 
@@ -59,21 +59,21 @@ youth_drinker = Weapon('The Youth Drinker','sword',98,1,8,0,1,8,False)
 
 # list of natural weapons
 
-bite_attack = Weapon('ferocious bite','natural',1,1,4,0,0,4,False)
+bite_attack = Weapon('Ferocious bite','natural',1,1,4,0,0,4,False)
 
 # list of hero armors
 
-starter_armor = Armor('iron braces','armor',1,0,0,False)
-elven_cape = Armor ('elven cape','armor',1,0,1,True)
-elvenkind_hood = Armor ('elvenkind hood','armor',1,0,1,True)
-steel_breastplate = Armor ('steel breastplate','armor',1,1,0,True)
-steel_helmet = Armor('steel helmet','armor',1,1,0,True)
-dwarven_breastplate = Armor('dwarven breastplate','armor',2,2,0,True)
-dwarven_helmet = Armor('dwarven helmet','armor',2,0,2,True)
-demonhide_gloves = Armor('demonhide gloves','armor',2,1,1,True)
-gloves_of_endurance = Armor('gloves of endurance','armor',2,2,1,True)
-braces_of_protection = Armor('braces of protection','armor',2,1,2,True)
-ring_of_hera = Armor('ring of Hera','ring',3,2,2,True) # Hera is the goddess of Mercy
+starter_armor = Armor('Iron braces','armor',1,0,0,False)
+elven_cape = Armor ('Elven cape','armor',1,0,1,True)
+elvenkind_hood = Armor ('Elvenkind hood','armor',1,0,1,True)
+steel_breastplate = Armor ('Steel breastplate','armor',1,1,0,True)
+steel_helmet = Armor('Steel helmet','armor',1,1,0,True)
+dwarven_breastplate = Armor('Dwarven breastplate','armor',2,2,0,True)
+dwarven_helmet = Armor('Dwarven helmet','armor',2,0,2,True)
+demonhide_gloves = Armor('Demonhide gloves','armor',2,1,1,True)
+gloves_of_endurance = Armor('Gloves of endurance','armor',2,2,1,True)
+braces_of_protection = Armor('Braces of protection','armor',2,1,2,True)
+ring_of_hera = Armor('Ring of Hera','ring',3,2,2,True) # Hera is the goddess of Mercy
 
 
 # list of monster armors

@@ -6,6 +6,7 @@ import pickle
 import datetime
 import math
 from tabulate import tabulate
+from termcolor import colored, cprint
 
 def save_game(hero_object):
     with open('save_game.pkl', 'wb') as output:
@@ -46,7 +47,11 @@ def title():
     tell_story(exposition)
     pause()
     clear_screen()
-    print ("\n\nToday is your 18th birthday. It is night time it's quiet.\n\nWith a torch one hand and a "+my_hero.weapon.type+" in the other, wearing a leather armor bearing your\nfamily's crest and "+my_hero.armor.name+", you have one goal in mind -\nvanquish Xorath and set the people of Hillsbard free.")
+    print ("\n\nToday is your 18th birthday. It is night time it's quiet.\n\nWith a torch one hand and a ",end ='')
+    cprint(my_hero.weapon.name.lower(),'yellow', end = '')
+    print(" in the other, wearing a leather armor bearing your\nfamily's crest and ",end ='')
+    cprint(my_hero.armor.name.lower(),'yellow',end='')
+    print(", you have one goal in mind -\nvanquish Xorath and set the people of Hillsbard free.")
     tell_story(advance)
     includes.globals.session_start_time = datetime.datetime.now() #timestamp session start
     try:
