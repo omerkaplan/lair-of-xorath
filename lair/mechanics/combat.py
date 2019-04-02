@@ -9,6 +9,8 @@ from includes.world import * # get the world map
 from strings.story import *
 import includes.equipment
 import includes.generic
+from termcolor import colored, cprint
+
 
 
 # function
@@ -27,7 +29,9 @@ def luck_test(player): # luck test, returns True if lucky or False otherwise
     luck = player.luck
     roll = roll_die(2,6)
     if roll <= luck:
-        print ('Luck roll - success! '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
+        print ('Luck roll - ',end='')
+        cprint('succeeded! ','green',end ='')
+        print('('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
         player.luck = player.luck - 1
         return True
     elif roll > luck:
