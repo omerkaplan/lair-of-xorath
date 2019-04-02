@@ -5,8 +5,7 @@ from includes.equipment import *
 from includes.world import * # get the world map
 import random
 import numpy
-
-
+from termcolor import colored, cprint
 
 
 def show_stats(player):
@@ -44,7 +43,9 @@ def loot(player):
     # now that we have loot, let's evaluate it
 
     if isinstance(loot, Potion): #if this is a potion, drink it
-        print ('\nYou find a vial filled with liquid and recognize it as '+loot.name+'. You drink the potion...\n')
+        print ('\nYou find a vial filled with liquid and recognize it as',end=' ')
+        cprint(loot.name,'yellow',end='')
+        print('. You drink the potion...\n')
         def drink_potion(stat,value,potion_tier):
             player.__dict__[stat] = player.__dict__[stat]+value
             if stat == 'hp':
@@ -61,7 +62,8 @@ def loot(player):
         drink_potion(loot.effect_stat,loot.effect_points,loot.tier)
 
     elif isinstance(loot, Weapon): #if it's a weapon, evaluate it
-        print ('\nFound: '+loot.name+'!\n')
+        print ('\nFound:',end=' ')
+        cprint(loot.name+'!\n','yellow')
         if loot.max_damage > player.weapon.max_damage:
             print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name+' behind.')
             player.weapon = loot
@@ -77,7 +79,8 @@ def loot(player):
                 print ('The weapon looks in good condition but you are better practiced with your '+player.weapon.name+'. You leave it behind')
 
     elif isinstance(loot, Armor): #if it's an armor, evaluate it
-        print ('\nFound: '+loot.name+'!\n')
+        print ('\nFound:',end=' ')
+        cprint(loot.name+'!\n','yellow')
         if loot.ac_bonus > player.armor.ac_bonus:
             print ('This looks like a fine armor that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.armor.name+' behind.')
             player.armor = loot

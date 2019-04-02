@@ -35,7 +35,9 @@ def luck_test(player): # luck test, returns True if lucky or False otherwise
         player.luck = player.luck - 1
         return True
     elif roll > luck:
-        print ('Luck roll - failed '+'('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
+        print ('Luck roll - ',end='')
+        cprint('failed ','red',end ='')
+        print('('+str(luck)+' Luck vs 🎲 '+str(roll)+')')
         return False
 
 def check_dead(object):
@@ -50,7 +52,8 @@ def monster_reset(monster):
         monster.weapon = random.choice(includes.equipment.t1_weapons)
 
 def loot_monster(player,monster):
-    print ('\nYou examine the '+monster.name+ "'s corpse and find its "+monster.weapon.name.lower()+'\n')
+    print ('\nYou examine the '+monster.name+ "'s corpse and find its",end=' ')
+    cprint (monster.weapon.name.lower()+'\n','yellow')
     if monster.weapon.max_damage > player.weapon.max_damage:
         print ('This looks like a fine weapon that will surely aid you in your quest!\n\nYou pick it up and leave your '+player.weapon.name.lower()+' behind.')
         player.weapon = monster.weapon
@@ -71,7 +74,8 @@ def siphon_soul(monster, player):
         pass
     else:
         siphon_soul_damage = 1
-        print ("\n"+monster.weapon.name+' feeds your life force to Xorath (You take '+str(siphon_soul_damage)+' damage)\n')
+        cprint ("\n"+monster.weapon.name+' feeds your life force to Xorath','magenta',end=' ')
+        print ('(You take '+str(siphon_soul_damage)+' damage)\n')
         player.hp = player.hp-siphon_soul_damage
         monster.hp = monster.hp+siphon_soul_damage
 
@@ -85,7 +89,8 @@ def combat(player,monster):
         weapon_damage_bonus = attacker.weapon.damage_bonus
         total_damage = roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction
         if total_damage <= 0:
-            print (defender.armor.name+" absorbs the damage!"+' (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
+            cprint (defender.armor.name+" absorbs the damage!",'cyan',end=' ')
+            print('(🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
         else:
             defender.hp = (defender.hp-total_damage)
             print (str(total_damage)+' Damage delt to '+defender.name+'. (🎲 '+str(roll)+'+'+str(crit_roll)+'+'+str(weapon_damage_bonus)+'-'+str(defender.armor.damage_reduction)+'='+str(roll+crit_roll+weapon_damage_bonus-defender.armor.damage_reduction)+')')
@@ -96,16 +101,20 @@ def combat(player,monster):
         roll = roll_die(1,20)
         roll_with_bonuses = roll+attacker.weapon.roll_bonus
         if roll is 1:
-            print ('Critical Miss! (🎲 '+str(roll)+')')
-            return [False,False] #no hit no crit regardless of AC
+            cprint ('Critical Miss!','red',end=' ')
+            print ('(🎲 '+str(roll)+')')
+            return [False,False] # no hit no crit regardless of AC
         if roll is 20:
-            print ('Critical Hit! (🎲 '+str(roll)+')')
-            return [True,True] #hit and crit regardless of AC
+            cprint ('Critical Hit!','yellow',end=' ')
+            print ('(🎲 '+str(roll)+')')
+            return [True,True] # hit and crit regardless of AC
         elif roll_with_bonuses >= defender.ac+defender.armor.ac_bonus:
-            print ("It's a hit! (🎲 "+str(roll)+'+'+str(attacker.weapon.roll_bonus)+'='+str(roll_with_bonuses)+")")
+            print ("It's a hit!",end=' ')
+            print ("(🎲 "+str(roll)+'+'+str(attacker.weapon.roll_bonus)+'='+str(roll_with_bonuses)+")")
             return [True,False] #hit no crit
         elif roll_with_bonuses < defender.ac+defender.armor.ac_bonus:
-            print ('Miss! (🎲 '+str(roll)+'+'+str(attacker.weapon.roll_bonus)+'='+str(roll_with_bonuses)+')')
+            print ("Miss!",end=' ')
+            print ("(🎲 "+str(roll)+'+'+str(attacker.weapon.roll_bonus)+'='+str(roll_with_bonuses)+")")
             return [False,False] #no hit no crit
 
     def attack(attacker,defender):
@@ -137,7 +146,7 @@ def combat(player,monster):
                 globals.done = True # game over
                 break
             else:
-                print ('\n💀 '+monster.name+' is dead\n')
+                cprint ('\n💀 '+monster.name+' is dead\n','green')
                 pause()
                 clear_screen()
                 print ('\nYou wipe the remains of the '+monster.name+' from your '+player.weapon.type+'.\n')
@@ -158,7 +167,7 @@ def combat(player,monster):
         attack(monster,player)
 
         if check_dead(player) is True:
-            print ('\n💀 You died in combat\n')
+            cprint ('\n💀 You died in combat\n','red')
             pause()
             clear_screen()
             if player.luck > 0:
