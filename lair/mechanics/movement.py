@@ -129,14 +129,12 @@ def play_encounter(map_value):
         fight_or_flight(my_hero,xorath)
 
     elif map_value == 99:
-        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(lair_entrance)
         tell_story(advance)
 
     elif map_value == '*':
-        globals.rooms_visited = globals.rooms_visited+1
         clear_screen()
         sleep (0.5)
         tell_story(exploring)

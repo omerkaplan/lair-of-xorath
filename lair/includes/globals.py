@@ -3,7 +3,7 @@ import datetime
 
 # global variables that are shared across all implementations and not module specific
 
-game_version = "1.2: \"Becon of hope\"" # game version
+game_version = "1.2.1: \"Becon of hope\"" # game version
 
 done = False #done governs the span of the session. True is game over
 
@@ -19,7 +19,7 @@ row = 0
 session_start_time = datetime.datetime.now()
 session_end_time = datetime.datetime.now()
 session_duration = session_end_time-session_start_time
-rooms_visited = 0
+rooms_visited = 1 # it's 1 becuase the entrance count as a unique room
 monsters_killed = 0
 monsters_avoided = 0
 traps_disarmed = 0

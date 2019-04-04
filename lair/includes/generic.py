@@ -91,5 +91,5 @@ def show_session_stats(player):
         xorath_status = "is dead!"
 
     print ("\n\nSession stats")
-    table = [["Xorath",xorath_status],["Session Duration",total_duration],["Rooms visited",includes.globals.rooms_visited],["Monsters Killed",includes.globals.monsters_killed],["Combat avoided",includes.globals.monsters_avoided],["Traps disarmed",includes.globals.traps_disarmed],["Traps triggered",includes.globals.traps_triggered],["Loot found",includes.globals.loot_found],["Times rested",includes.globals.times_rested],["Weapon",player.weapon.name],["Armor",player.armor.name],["Cheats used",includes.globals.cheats_used]]
+    table = [["Xorath",xorath_status],["Session Duration",total_duration],["Rooms discovered",str(includes.globals.rooms_visited)+" ("+str(math.floor(includes.globals.rooms_visited/49*100))+"%)"],["Monsters Killed",includes.globals.monsters_killed],["Combat avoided",includes.globals.monsters_avoided],["Traps disarmed",includes.globals.traps_disarmed],["Traps triggered",includes.globals.traps_triggered],["Loot found",includes.globals.loot_found],["Times rested",includes.globals.times_rested],["Weapon",player.weapon.name],["Armor",player.armor.name],["Cheats used",includes.globals.cheats_used]]
     print(tabulate(table))
